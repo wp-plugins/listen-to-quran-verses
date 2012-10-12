@@ -24,7 +24,7 @@ ayahRepeatCurrent = 1;
 totalAyah = 0;
 
 // global variable to defined wether we need to log debug messages or not
-debug = true;
+debug = false;
 
 /* ********* EVENTS ******** */
 
