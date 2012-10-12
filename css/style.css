@@ -1,0 +1,23 @@
+table#playlist-items {
+    margin: 0;
+    text-align: center;
+    width: 100%;
+}
+td.playlist-item, td.playlist-item-played, td.playlist-item-dottes {
+	text-align: center;
+	cursor: pointer;
+	border: thin dotted;
+	padding: 0px;
+}
+td.playlist-item-played {
+	color: blue;
+	background: #eee;
+}
+
+td.playlist-item-dottes {
+	cursor: default;
+}
+
+input[type=number] {
+	direction: rtl;
+}
