@@ -276,15 +276,8 @@ function mqvLog(msg) {
 /*
 	Configuring the URL source:
 */
-/** LOCAL INSTALLATION **
-protocole = "http://";
-host = "localhost/";
-path = "";
-receiter = "warsh_ibrahim_aldosary/";
-/** SERVER CONFIGURATION **/
 protocole = "http://";
 host = "gem.everyayah.com/";
 path = "data/warsh/";
 receiter = "warsh_ibrahim_aldosary_128kbps/";
-
 /* ****** */
