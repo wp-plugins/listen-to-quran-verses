@@ -21,6 +21,7 @@ player = jwplayer('mediaspace');
 startAyah = 1;
 endAyah = 1;
 ayahRepeatCurrent = 1;
+totalRepeatCurrent = 1;
 totalAyah = 0;
 
 // global variable to defined wether we need to log debug messages or not
@@ -80,6 +81,8 @@ jQuery("#start-reading").click(function(){
 
 	// loading the playlist from the array content
 	player.load(URLs);
+	
+	totalRepeatCurrent = 1;
 	// start with the first item
 	player.playlistItem(0);
 });
@@ -87,18 +90,7 @@ jQuery("#start-reading").click(function(){
 
 // on play event: fired every time an media is played (item from the playlist)
 player.onPlay(function(){
-	mqvLog("Current: "+ (parseInt(startAyah) + ayahIndexPlay));
-	// create the playlist item
-	// initializing the pagging items for the playlist
-	initPlayList();
-	
-	// marking the already played items in the playlist pagging
-	$(".playlist-item").each(function(){
-		$(this).removeClass("playlist-item-played");
-		var idx = parseInt( $(this).html() );
-		if(idx <= (parseInt(startAyah) + ayahIndexPlay))
-			$(this).addClass("playlist-item-played");
-	});
+	// moved to onPlaylistItem
 });
 
 
@@ -107,13 +99,27 @@ player.onPlaylistItem(function(evt){
 	mqvLog("EVENT:"+evt["index"]);
 	// set the playlist index of the current played item
 	ayahIndexPlay = evt["index"];
+	// create the playlist item
+	// initializing the pagging items for the playlist
+	initPlayList();
+	
+	// marking the already played items in the playlist pagging
+	mqvLog("******** Start marking the playlist ********");
+	mqvLog("Current value: " + (parseInt(startAyah) + ayahIndexPlay));
+	$(".playlist-item").each(function(){
+		$(this).removeClass("playlist-item-played");
+		var idx = parseInt( $(this).html() );
+		mqvLog("Item value: " + idx);
+		if(idx <= (parseInt(startAyah) + ayahIndexPlay))
+			$(this).addClass("playlist-item-played");
+	});
 });
 
 // event fired every time a media, playlist item, has finished playing
 player.onComplete(function(){
 	
 	// check if the current turn less than the repeat time, we repeat one more time
-	if(ayahRepeatCurrent < jQuery("#ayah-repeat-verse").val()){
+	if(ayahRepeatCurrent < parseInt(jQuery("#ayah-repeat-verse").val())){
 		// if the repeating flag hasn't been reached yet, we play again the same media
 		ayahRepeatCurrent++;
 		player.play();
@@ -130,14 +136,37 @@ player.onComplete(function(){
 		return;
 	}
 	// if not we check for the "repeat all" checkbox
-	if(jQuery("#ayah-repeat-all").is(':checked'))
-		// if check: play again the same playlist
-		player.playlistNext();
-	else
+	if(jQuery("#ayah-repeat-all").is(':checked')){
+		if(jQuery.isNumeric(jQuery("#ayah-repeat-all-nbr").val())){
+			mqvLog("Field content is numeric");
+			var limit = parseInt(jQuery("#ayah-repeat-all-nbr").val());
+			mqvLog("Limit: "+limit);
+			mqvLog("Repeat Current: "+ totalRepeatCurrent)
+			if( limit == 0 || totalRepeatCurrent < limit){
+				// if checked and the limit repeat isn't reached play again the same playlist 
+				mqvLog("Will repeat");
+				player.playlistNext();
+				totalRepeatCurrent ++;
+			}
+		}
+	}
+	else{
 		// if not, do nothing (a simple log message)
 		mqvLog("Repeat all is off");
+		totalRepeatCurrent = 1;	
+	}
 });
 
+jQuery("#ayah-repeat-all").change(function(){
+	// reset the limit counter
+	totalRepeatCurrent = 1;
+	// on repeat all checkbox changing state, if the checkbox is checked we enable the field to define a repetition limit
+	// if not we diabled the field
+	if(jQuery("#ayah-repeat-all").is(':checked'))
+		jQuery("#ayah-repeat-all-nbr").removeAttr("disabled");
+	else
+		jQuery("#ayah-repeat-all-nbr").attr("disabled","disabled");
+});
 
 /* *******  FUNCTIONS ******** */
 
@@ -276,8 +305,10 @@ function mqvLog(msg) {
 /*
 	Configuring the URL source:
 */
+/** SERVER CONFIGURATION **/
 protocole = "http://";
 host = "gem.everyayah.com/";
 path = "data/warsh/";
 receiter = "warsh_ibrahim_aldosary_128kbps/";
+
 /* ****** */

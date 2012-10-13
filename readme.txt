@@ -1,6 +1,5 @@
 === Listen to Quran Verses  ===
 Contributors: ibralnet
-Donate link: http://www.wadakkir.org/
 Tags: quran, memorising, verses, list, play, player
 Requires at least: 3.0.1
 Tested up to: 3.4.2
@@ -43,3 +42,8 @@ Basic Steps
 
 = 1.0 =
 * first release
+
+= 1.0.1 =
+* add limit function to repeat all
+* bugfixing playlist item
+ 
