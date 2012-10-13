@@ -7,7 +7,7 @@ Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This plugin allows you to easily add Quran to your website with a flexible way to help people memorize its verses, and a very simple, easy to integrate within the current theme, and fully customizable interface supporting LTR as well as RTL design form.
+Listen to Quran Verses enables adding quran player for the receiter Ibrahim Aldosary (warsh) with a form to select specific, or an interval of verses
 
 == Description ==
 
@@ -19,8 +19,6 @@ Simple functionnality, but yet very usefull way to listen to quran verse by vers
 - define the number each verse needs to be played
 - set to repeat the whole interval to on/off
 - a nice paging and progress bar is there to help you knowing the current and already played verse from your interval
-
-Big thanks to http://everyayah.com/ for there support
 
 == Installation ==
 
@@ -46,3 +44,4 @@ Basic Steps
 
 = 1.0 =
 * first release
+ 
