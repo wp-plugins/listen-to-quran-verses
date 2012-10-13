@@ -20,8 +20,8 @@ Simple functionnality, but yet very usefull way to listen to quran verse by vers
 - set to repeat the whole interval to on/off
 - a nice paging and progress bar is there to help you knowing the current and already played verse from your interval
 
-Online demo on: http://listenquran.wadakkir.org
-Report bugs on: http://listenquran.wadakkir.org/contact/
+* Online demo on: http://listenquran.wadakkir.org
+* Report bugs on: http://listenquran.wadakkir.org/contact/
 
 == Installation ==
 
