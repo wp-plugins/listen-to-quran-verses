@@ -40,10 +40,9 @@ Basic Steps
 
 == Changelog ==
 
-= 1.0 =
-* first release
-
 = 1.1 =
 * add limit function to repeat all
 * bugfixing playlist item
- 
+
+= 1.0 =
+* first release
