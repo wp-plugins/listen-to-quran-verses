@@ -20,6 +20,11 @@ Simple functionnality, but yet very usefull way to listen to quran verse by vers
 - set to repeat the whole interval to on/off
 - a nice paging and progress bar is there to help you knowing the current and already played verse from your interval
 
+
+<h3>Plugin links:</h3>
+1. Online demo on: <a href="http://listenquran.wadakkir.org">Plugin website</a>
+1. Report bugs on: <a href="http://listenquran.wadakkir.org/contact/">Plugin developer contact form</a>
+
 == Installation ==
 
 make sure you add `{QuranVerses}` in your new page or new post. so it start showing instantly.
@@ -27,8 +32,8 @@ make sure you add `{QuranVerses}` in your new page or new post. so it start show
 Basic Steps
 
 1. Upload `plugin-name.php` to the `/wp-content/plugins/` directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Place `{QuranVerses}` anywhere in your page/post content.
+1. Activate the plugin through the 'Plugins' menu in WordPress
+1. Place `{QuranVerses}` anywhere in your page/post content.
 
 
 == Screenshots ==
