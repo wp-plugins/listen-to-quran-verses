@@ -43,6 +43,17 @@ Basic Steps
 
 == Changelog ==
 
+= 1.1.1 =
+
+not done * make default "go"
+not done * change start/end to interval 
+
+* add error message to the form
+* disable a negative value
+* add an explicit infinite loop note about 0 for repeat all
+* switch from autocomplete to search behavior
+* add sourah number in the list
+
 = 1.1 =
 * add limit function to repeat all
 * bugfixing playlist item

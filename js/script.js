@@ -25,23 +25,34 @@ totalRepeatCurrent = 1;
 totalAyah = 0;
 
 // global variable to defined wether we need to log debug messages or not
-debug = false;
+debug = true;
 
 /* ********* EVENTS ******** */
 
 // When the document is ready we set the init values
 jQuery(document).ready(function(){
+	var sourahIdx = 1;
+	for(var idx in sourahNames){
+		sourahNames[idx] = threeDigit(sourahIdx) + ' - ' + sourahNames[idx];
+		sourahIdx ++;
+	}
+
 	// default sourah is: Al Faatiha
 	$("#sourah").val(sourahNames[0]);
 	// change the sourah field to an autocomplete field
-	$("#sourah").autocompleteArray(sourahNames, {
-		onItemSelect: initElements
-		,autoFill:true
+	$("#sourah").autocomplete({
+		source: sourahNames
+		, close: initElements
+		, change: initElements
+		, autoFocus: true
+	}).focus(function(){
+		$(this).select();
 	});
-	
 	// init the total ayah for the current sourah variable and set it as a defaul value for the "end" field
 	totalAyah = ayahPerSourah[ threeDigit( getSourahNumber( jQuery("#sourah").val() ) ) ];
 	$("#ayah-e").val( totalAyah );
+	
+	loadPlayList(false);
 });
 
 // When the user start playing the select verses
@@ -49,42 +60,10 @@ jQuery("#start-reading").click(function(){
 	
 	// validating the form values
 	if(!isValid())
-			return;
-
-	// initilize the list elements container array
-	var URLs = [];
-
-	// getting the starting ayah
-	startAyah = parseInt(jQuery("#ayah-b").val());
-	mqvLog("Starting from:"+ startAyah);
-
-	// getting the ending ayah
-	endAyah   = parseInt(jQuery("#ayah-e").val());
-	mqvLog("Ending at:"+ endAyah);
+		return;
 	
-	// stoping any previous playlist
-	player.stop();
-	
-	/* ### GENERATING THE PLAYLIST ### */
-	mqvLog("creating the list");
-	var sourah = jQuery("#sourah").val();
-	sourah = threeDigit( getSourahNumber( sourah ) );
-	// loop from the start verse to the end and append the playlist holder variable with the adequated url
-	for(i=startAyah; i<= endAyah;i++){
-		URLs.push({
-			file:protocole+host+path+receiter+sourah+threeDigit(i)+".mp3"
-			, title: "Ayah"
-		});
-		mqvLog(protocole+host+path+receiter+sourah+threeDigit(i)+".mp3");
-	}
-	/* ### ### */
-
-	// loading the playlist from the array content
-	player.load(URLs);
-	
-	totalRepeatCurrent = 1;
-	// start with the first item
-	player.playlistItem(0);
+	// load and play the playlist
+	loadPlayList();
 });
 
 
@@ -162,14 +141,90 @@ jQuery("#ayah-repeat-all").change(function(){
 	totalRepeatCurrent = 1;
 	// on repeat all checkbox changing state, if the checkbox is checked we enable the field to define a repetition limit
 	// if not we diabled the field
-	if(jQuery("#ayah-repeat-all").is(':checked'))
+	if(jQuery("#ayah-repeat-all").is(':checked')){
+		$("#repeat-all-control").slideDown("normal");
 		jQuery("#ayah-repeat-all-nbr").removeAttr("disabled");
-	else
+	}
+	else{
 		jQuery("#ayah-repeat-all-nbr").attr("disabled","disabled");
+		$("#repeat-all-control").slideUp("normal");
+	}
+		
+});
+
+jQuery("#ayah-e, #ayah-b").change(function(oldV,newV){
+	mqvLog("Change event fired for: starting ayah");
+	var v = parseInt($(this).val());
+	if(v > totalAyah || v < 1){
+		defaultVal = ( v < 1) ? 1 : totalAyah;
+		$(this).val(defaultVal);
+		insertMsg($(this), "Starting/Ending should be within the interval of 1 and "+totalAyah);
+	}
+	else
+	{
+		$(".mqv-interval-notes").remove();
+	}
+	mqvLog("Value: "+v);
 });
 
 /* *******  FUNCTIONS ******** */
 
+function loadPlayList(play){
+	
+	// initilize the list elements container array
+	var URLs = [];
+
+	// getting the starting ayah
+	startAyah = parseInt(jQuery("#ayah-b").val());
+	mqvLog("Starting from:"+ startAyah);
+
+	// getting the ending ayah
+	endAyah   = parseInt(jQuery("#ayah-e").val());
+	mqvLog("Ending at:"+ endAyah);
+	
+	// stoping any previous playlist
+	player.stop();
+	
+	/* ### GENERATING THE PLAYLIST ### */
+	mqvLog("creating the list");
+	var sourah = jQuery("#sourah").val();
+	sourah = threeDigit( getSourahNumber( sourah ) );
+	// loop from the start verse to the end and append the playlist holder variable with the adequated url
+	for(i=startAyah; i<= endAyah;i++){
+		URLs.push({
+			file:protocole+host+path+receiter+sourah+threeDigit(i)+".mp3"
+			, title: "Ayah"
+		});
+		mqvLog(protocole+host+path+receiter+sourah+threeDigit(i)+".mp3");
+	}
+	/* ### ### */
+
+	// loading the playlist from the array content
+	player.load(URLs);
+	
+	totalRepeatCurrent = 1;
+	mqvLog(play !== false);
+	if(play !== false)
+		// start with the first item
+		player.playlistItem(0);
+}
+
+function insertMsg(obj,msg, err){
+	if(err !== true)
+		err = false;
+	// create span
+	var span = document.createElement("span");
+	var $span = $(span);
+	$span.addClass("mqv-note-field");
+	
+	var noteTypeClass = err ? "mqv-error-field": "mqv-warning-field";
+	
+	$span.addClass(noteTypeClass);
+	$span.addClass("mqv-interval-notes");
+	$span.text(msg);
+	obj.parent().append(span);
+	$span.fadeIn().delay(2500).fadeOut(3000);
+}
 
 // initializing the form element on the change event of the sourah list
 function initElements(){
@@ -270,6 +325,7 @@ function isValid(){
 	// if the selected sourah exist
 	if( getSourahNumber($("#sourah").val()) == 0){
 		$("#sourah").css("border","medium double red");
+		insertMsg($("#sourah"), "Please select a valid sourah", true);
 		valid = false;
 	}
 	else
@@ -277,6 +333,12 @@ function isValid(){
 
 	if( parseInt($("#ayah-b").val()) < 1 || parseInt($("#ayah-b").val()) > totalAyah){
 		$("#ayah-b").css("border","medium double red");
+		if(parseInt($("#ayah-b").val()) < 1){
+			insertMsg($("#ayah-b"), "Start ayah must be greater than 1", true);
+		}
+		if(parseInt($("#ayah-b").val()) > totalAyah){
+			insertMsg($("#ayah-b"), "Start ayah cannot be greater than "+totalAyah, true);
+		}
 		valid = false;
 	}
 	else
@@ -284,6 +346,11 @@ function isValid(){
 	
 	if( parseInt($("#ayah-e").val()) > totalAyah || parseInt($("#ayah-e").val()) < parseInt($("#ayah-b").val())){
 		$("#ayah-e").css("border","medium double red");
+		if(parseInt($("#ayah-e").val()) > totalAyah)
+			insertMsg($("#ayah-e"), "End ayah cannot be greater than "+totalAyah, true);
+		if(parseInt($("#ayah-e").val()) < parseInt($("#ayah-b").val()))
+			insertMsg($("#ayah-e"), "End ayah must be greater than start ayah ("+ $("#ayah-b").val() +")", true);
+
 		valid = false;
 	}
 	else
@@ -300,12 +367,14 @@ function mqvLog(msg) {
 		console.log(msg);
 }
 
-
-
+protocole = "http://";
+host = "localhost/";
+path = "";
+receiter = "warsh_ibrahim_aldosary/";
 /*
 	Configuring the URL source:
 */
-/** SERVER CONFIGURATION **/
+/** SERVER CONFIGURATION **
 protocole = "http://";
 host = "gem.everyayah.com/";
 path = "data/warsh/";

@@ -4,7 +4,6 @@ hum... actually I got already tired of typing all of those comment, sorry for my
 you can understand the form by urself, quite easy isn't it ;) 
 -->
 
-<link rel="stylesheet" href="__PLUGINS_URL__/css/jquery.autocomplete.css" type="text/css" media="screen" title="no title" charset="utf-8">
 <link rel="stylesheet" href="__PLUGINS_URL__/css/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
 
 <table id="mqv-container">
@@ -21,7 +20,7 @@ you can understand the form by urself, quite easy isn't it ;)
 			<label for="ayah-b" class="toTranslate" transindex="START">Start: </label>
 		</td>
 		<td>
-			<input type="number" name="ayah-b" id="ayah-b" value="1" />
+			<input type="number" name="ayah-b" id="ayah-b" value="1" /><!-- span class="mqv-note-field mqv-warning-field">This is a text here</span -->
 		</td>
 	</tr>
 	<tr>
@@ -34,10 +33,10 @@ you can understand the form by urself, quite easy isn't it ;)
 	</tr>
 	<tr>
 		<td>
-			<label for="ayah-repeat-verse" class="toTranslate" transindex="REPEAT" >Repeat time (per verse): </label>
+			<label for="ayah-repeat-verse" class="toTranslate" transindex="REPEAT" >Repeat times (per verse): </label>
 		</td>
 		<td>
-			<input type="number" name="ayah-repeat-verse" id="ayah-repeat-verse" value="1" title="You can change this even while playing ther verses (ayah)" /> <br/>
+			<input type="number" name="ayah-repeat-verse" id="ayah-repeat-verse" value="1" title="You can change this even while playing the verses (ayah)" /> <br/>
 		</td>
 	</tr>
 	<tr>
@@ -45,16 +44,12 @@ you can understand the form by urself, quite easy isn't it ;)
 			<label for="ayah-repeat-all" class="toTranslate" transindex="REPEAT-ALL" >Repeat all: </label>
 		</td>
 		<td>
-			<input type="checkbox" name="ayah-repeat-all" id="ayah-repeat-all" />
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<label for="ayah-repeat-all-nbr" class="toTranslate" transindex="REPEAT-ALL-FOR" >Repeat all for : </label>
-		</td>
-		<td>
-			<input type="number" name="ayah-repeat-all-nbr" id="ayah-repeat-all-nbr" value="0" disabled />
-			<span class="toTranslate" transindex="TIMES">Time (s)</span>
+			<input type="checkbox" name="ayah-repeat-all" id="ayah-repeat-all" /><br>
+			<p id="repeat-all-control">
+			<input type="number" name="ayah-repeat-all-nbr" id="ayah-repeat-all-nbr" value="0" title="You can change this even while playing" disabled />
+			<span class="toTranslate" transindex="TIMES">Time (s)</span><span class="mqv-attention-style"">*</span><br/>
+			(<span class="mqv-attention-style"">*</span>): <span class="mqv-hint-field">1 stands for playing the selection One time, 2 for Two times and so on, <span class="mqv-important-field"> 0 is to loop infinitly</span></span>
+			</p>
 		</td>
 	</tr>
 	<tr>
@@ -65,7 +60,7 @@ you can understand the form by urself, quite easy isn't it ;)
 	</tr>
 	<tr>
 		<td colspan="2" style="text-align: right; direction: ltr;">
-			Powered by: <a href="http://listenquran.wadakkir.org/" target="_blank"><img src="__PLUGINS_URL__/logo.png" width="55" height="55" alt="Logo" style="vertical-align: middle;"></a>
+			Powered by: <a href="http://listenquran.wadakkir.org/" target="_blank"><img src="http://dev.wadakkir.org/logo.php" width="55" height="55" alt="Logo" style="vertical-align: middle;"></a>
 		</td>
 	</tr>
 </table>

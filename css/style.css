@@ -1,3 +1,10 @@
+table#mqv-container tr td:nth-child(1){
+	width: 40%;
+}
+table#mqv-container tr td:nth-child(2){
+	width: 60%;
+}
+
 table#playlist-items {
     margin: 0;
     text-align: center;
@@ -20,4 +27,33 @@ td.playlist-item-dottes {
 
 input[type=number] {
 	direction: rtl;
+}
+.mqv-note-field {
+	display: none;
+	border: medium solid;
+	padding: 5px;
+	margin: 10px;
+	margin: 10px;
+	position: absolute;
+	background-color: white;
+}
+.mqv-warning-field {
+	border-color: orange;
+}
+.mqv-error-field {
+	border-color: red;
+}
+
+.mqv-attention-style{
+	color: red;
+	font-weight: bold;
+}
+.mqv-important-field {
+	font-weight: bold;
+}
+.mqv-hint-field {
+	font-size: 75%;
+}
+#repeat-all-control {
+	display: none;
 }
