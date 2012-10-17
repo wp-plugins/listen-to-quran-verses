@@ -17,17 +17,12 @@ you can understand the form by urself, quite easy isn't it ;)
 	</tr>
 	<tr>
 		<td>
-			<label for="ayah-b" class="toTranslate" transindex="START">Start: </label>
+			<label for="ayah-b" class="toTranslate" transindex="INTERVAL"> Play interval: </label>
 		</td>
 		<td>
-			<input type="number" name="ayah-b" id="ayah-b" value="1" /><!-- span class="mqv-note-field mqv-warning-field">This is a text here</span -->
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<label for="ayah-e" class="toTranslate" transindex="END">End: </label>
-		</td>
-		<td>
+			<label for="ayah-b" class="toTranslate" transindex="FROM">From: </label>
+			<input type="number" name="ayah-b" id="ayah-b" value="1" />
+			<label for="ayah-e" class="toTranslate" transindex="TO">To: </label>
 			<input type="number" name="ayah-e" id="ayah-e" value="1" />
 		</td>
 	</tr>
@@ -36,7 +31,7 @@ you can understand the form by urself, quite easy isn't it ;)
 			<label for="ayah-repeat-verse" class="toTranslate" transindex="REPEAT" >Repeat times (per verse): </label>
 		</td>
 		<td>
-			<input type="number" name="ayah-repeat-verse" id="ayah-repeat-verse" value="1" title="You can change this even while playing the verses (ayah)" /> <br/>
+			<input type="number" name="ayah-repeat-verse" id="ayah-repeat-verse" value="1" title="You can change this even while playing the verses (ayah)" /> 
 		</td>
 	</tr>
 	<tr>
@@ -44,18 +39,18 @@ you can understand the form by urself, quite easy isn't it ;)
 			<label for="ayah-repeat-all" class="toTranslate" transindex="REPEAT-ALL" >Repeat all: </label>
 		</td>
 		<td>
-			<input type="checkbox" name="ayah-repeat-all" id="ayah-repeat-all" /><br>
+			<input type="checkbox" name="ayah-repeat-all" id="ayah-repeat-all" />
 			<p id="repeat-all-control">
 			<input type="number" name="ayah-repeat-all-nbr" id="ayah-repeat-all-nbr" value="0" title="You can change this even while playing" disabled />
 			<span class="toTranslate" transindex="TIMES">Time (s)</span><span class="mqv-attention-style"">*</span><br/>
-			(<span class="mqv-attention-style"">*</span>): <span class="mqv-hint-field">1 stands for playing the selection One time, 2 for Two times and so on, <span class="mqv-important-field"> 0 is to loop infinitly</span></span>
+			(<span class="mqv-attention-style"">*</span>): <span class="mqv-hint-field toTranslate" transindex="1_AND_2_HINT">1 stands for playing the selection One time, 2 for Two times and so on, </span><span class="mqv-important-field toTranslate" transindex="0_HINT"> 0 is to loop infinitly</span>
 			</p>
 		</td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
 		<td>
-			<input type="button" id="start-reading" value="Go !">
+			<input type="button" id="start-reading" value="Play selection !">
 		</td>
 	</tr>
 	<tr>

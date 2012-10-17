@@ -7,7 +7,7 @@ Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Listen to Quran Verses enables adding quran player for the receiter Ibrahim Aldosary (warsh) with a form to select specific, or an interval of verses
+A Quran player developed for the purpose to listen and/or memorize the Quran with the functionality to repeat many times a specific interval of verses
 
 == Description ==
 
@@ -45,9 +45,8 @@ Basic Steps
 
 = 1.1.1 =
 
-not done * make default "go"
-not done * change start/end to interval 
-
+* make default "go"
+* change start/end to interval 
 * add error message to the form
 * disable a negative value
 * add an explicit infinite loop note about 0 for repeat all

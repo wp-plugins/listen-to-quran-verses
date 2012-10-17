@@ -46,12 +46,25 @@ jQuery(document).ready(function(){
 		, change: initElements
 		, autoFocus: true
 	}).focus(function(){
-		$(this).select();
-	});
+		setTimeout(function(){
+			$("#sourah").select();
+		}, 50);
+	}).blur(initElements);
 	// init the total ayah for the current sourah variable and set it as a defaul value for the "end" field
 	totalAyah = ayahPerSourah[ threeDigit( getSourahNumber( jQuery("#sourah").val() ) ) ];
 	$("#ayah-e").val( totalAyah );
+
+	// if supporting RTL is enabled, we put some correction
+	if(isRTL){
+		$(".ui-autocomplete").each(function(){
+			$(this).css("direction","rtl");
+		});
+	}
 	
+	
+	// correct refresh behaviour on the checkbox
+	$("#ayah-repeat-all").removeAttr("checked");
+
 	loadPlayList(false);
 });
 
@@ -152,13 +165,20 @@ jQuery("#ayah-repeat-all").change(function(){
 		
 });
 
-jQuery("#ayah-e, #ayah-b").change(function(oldV,newV){
-	mqvLog("Change event fired for: starting ayah");
+jQuery("#ayah-e, #ayah-b").change(function(){
+	
+	if( getSourahNumber($("#sourah").val()) == 0 ){
+		$(this).val(1);
+		insertMsg($("#sourah"), dicoVars['VALID_SOURAH_SELECTION'], true);
+		return;
+	}
+
 	var v = parseInt($(this).val());
 	if(v > totalAyah || v < 1){
 		defaultVal = ( v < 1) ? 1 : totalAyah;
 		$(this).val(defaultVal);
-		insertMsg($(this), "Starting/Ending should be within the interval of 1 and "+totalAyah);
+		mqvLog(dicoVars['START_END_INTERVAL']);
+		insertMsg($(this), dicoVars['START_END_INTERVAL'] + totalAyah);
 	}
 	else
 	{
@@ -166,6 +186,20 @@ jQuery("#ayah-e, #ayah-b").change(function(oldV,newV){
 	}
 	mqvLog("Value: "+v);
 });
+jQuery("#ayah-repeat-verse").change(function(){
+
+	var v = parseInt($(this).val());
+	if(v < 1){
+		$(this).val(1);
+		insertMsg($(this), dicoVars['REPEAT_TIME_MIN_VAL']);
+	}
+	else
+	{
+		$(".mqv-interval-notes").remove();
+	}
+	mqvLog("Value: "+v);
+});
+
 
 /* *******  FUNCTIONS ******** */
 
@@ -228,6 +262,10 @@ function insertMsg(obj,msg, err){
 
 // initializing the form element on the change event of the sourah list
 function initElements(){
+	if( getSourahNumber($("#sourah").val()) == 0 ){
+		insertMsg($("#sourah"), dicoVars['VALID_SOURAH_SELECTION'], true);
+		return;
+	}
 	jQuery("#ayah-b").val(1);
 	totalAyah = ayahPerSourah[ threeDigit( getSourahNumber( jQuery("#sourah").val() ) ) ];
 	$("#ayah-e").val( totalAyah );
@@ -325,7 +363,7 @@ function isValid(){
 	// if the selected sourah exist
 	if( getSourahNumber($("#sourah").val()) == 0){
 		$("#sourah").css("border","medium double red");
-		insertMsg($("#sourah"), "Please select a valid sourah", true);
+		insertMsg($("#sourah"), dicoVars['VALID_SOURAH_SELECTION'], true);
 		valid = false;
 	}
 	else
@@ -334,10 +372,10 @@ function isValid(){
 	if( parseInt($("#ayah-b").val()) < 1 || parseInt($("#ayah-b").val()) > totalAyah){
 		$("#ayah-b").css("border","medium double red");
 		if(parseInt($("#ayah-b").val()) < 1){
-			insertMsg($("#ayah-b"), "Start ayah must be greater than 1", true);
+			insertMsg($("#ayah-b"), dicoVars['START_AYAH_MIN_VAL'], true);
 		}
 		if(parseInt($("#ayah-b").val()) > totalAyah){
-			insertMsg($("#ayah-b"), "Start ayah cannot be greater than "+totalAyah, true);
+			insertMsg($("#ayah-b"), dicoVars['START_AYAH_MAX_VAL']+totalAyah, true);
 		}
 		valid = false;
 	}
@@ -347,9 +385,9 @@ function isValid(){
 	if( parseInt($("#ayah-e").val()) > totalAyah || parseInt($("#ayah-e").val()) < parseInt($("#ayah-b").val())){
 		$("#ayah-e").css("border","medium double red");
 		if(parseInt($("#ayah-e").val()) > totalAyah)
-			insertMsg($("#ayah-e"), "End ayah cannot be greater than "+totalAyah, true);
+			insertMsg($("#ayah-e"), dicoVars['END_AYAH_MAX_VAL']+totalAyah, true);
 		if(parseInt($("#ayah-e").val()) < parseInt($("#ayah-b").val()))
-			insertMsg($("#ayah-e"), "End ayah must be greater than start ayah ("+ $("#ayah-b").val() +")", true);
+			insertMsg($("#ayah-e"), dicoVars['END_AYAH_MAX_VAL'] + "("+ $("#ayah-b").val() +")", true);
 
 		valid = false;
 	}

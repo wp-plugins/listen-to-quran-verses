@@ -27,6 +27,13 @@ td.playlist-item-dottes {
 
 input[type=number] {
 	direction: rtl;
+	width: 40px;
+}
+input {
+	vertical-align: middle;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 5px;
 }
 .mqv-note-field {
 	display: none;

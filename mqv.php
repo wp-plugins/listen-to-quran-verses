@@ -51,7 +51,7 @@ function loadScripts() {
 		'mqvdictionaryscript'
 		, plugins_url('/js/dictionary.js', __FILE__)
 	);
-	if(get_locale() == "ar") {
+	if(get_locale() == "ar" || true) {
 		wp_enqueue_script(
 			'mqvdictionaryarscript'
 			, plugins_url('/js/dictionary-ar.js', __FILE__)

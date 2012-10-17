@@ -4,6 +4,9 @@
 		value: number of verses
 */
 
+var isRTL = false;
+var dicoVars = {};
+
 ayahPerSourah = {
 	'001':7
 	,'002': 286
