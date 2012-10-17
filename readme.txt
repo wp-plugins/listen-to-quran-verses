@@ -38,8 +38,8 @@ Basic Steps
 
 == Screenshots ==
 
-1. Enlgish interface screenshot
-2. Arabic interface screenshot
+1. Enlgish interface showing the new interface
+2. Enlgish interface showing the new autocomplete function & repeat the whole interface hint
 
 == Changelog ==
 
