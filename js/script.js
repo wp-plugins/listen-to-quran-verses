@@ -405,16 +405,12 @@ function mqvLog(msg) {
 		console.log(msg);
 }
 
-protocole = "http://";
-host = "localhost/";
-path = "";
-receiter = "warsh_ibrahim_aldosary/";
 /*
 	Configuring the URL source:
 */
-/** SERVER CONFIGURATION **
+/** SERVER CONFIGURATION **/
 protocole = "http://";
-host = "gem.everyayah.com/";
+host = "www.everyayah.com/";
 path = "data/warsh/";
 receiter = "warsh_ibrahim_aldosary_128kbps/";
 

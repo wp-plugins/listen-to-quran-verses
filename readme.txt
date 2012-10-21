@@ -47,6 +47,11 @@ Basic Steps
 
 == Changelog ==
 
+= 1.1.2 =
+
+* Add some missing translations
+* Hot fix for tracks link
+
 = 1.1.1 =
 
 * make default "go"

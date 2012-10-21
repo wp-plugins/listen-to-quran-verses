@@ -15,9 +15,9 @@ dicoVars = {
 	, 'START_END_INTERVAL': 'على آيتي البداية و النهاية أن تكونا ضمن المجال 1 إلى '
 	, 'REPEAT_TIME_MIN_VAL': 'يجب أن يكون عدد التكرار أكبر من 1'
 	, 'START_AYAH_MIN_VAL': 'الآية الأولى يجب أن تكون أكبر من 1'
-	, 'START_AYAH_MAX_VAL': 'Start ayah cannot be greater than '
-	, 'END_AYAH_MAX_VAL': 'End ayah cannot be greater than '
-	, 'END_AYAH_MIN_VAL': 'End ayah must be greater than start ayah '
+	, 'START_AYAH_MAX_VAL': 'على آية البداية أن تكون أصغر من '
+	, 'END_AYAH_MAX_VAL': 'على آية النهاية أن تكون أصغر من '
+	, 'END_AYAH_MIN_VAL': 'على آية النهاية أن تكون أكبر من '
 };
 
 dico = {
