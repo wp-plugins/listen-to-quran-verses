@@ -9,7 +9,6 @@ $(document).ready(function (){
 		if(index == null || typeof index == 'undefined' || index == "")
 			return;
 		$(this).text(dico[index]);
-		console.log("-----> "+ index);
 	});
 	$("#start-reading").val(dico["GO"]);
 	$("#mqv-container").css("direction","rtl");

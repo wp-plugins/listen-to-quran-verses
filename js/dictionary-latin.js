@@ -14,4 +14,6 @@ dicoVars = {
 	, 'START_AYAH_MAX_VAL': 'Start ayah cannot be greater than '
 	, 'END_AYAH_MAX_VAL': 'End ayah cannot be greater than '
 	, 'END_AYAH_MIN_VAL': 'End ayah must be greater than start ayah '
+	, 'START_END_FIELD_TYPE': 'START_END_FIELD_TYPE'
+	, 'REPEAT_TIMES_FIELD_TYPE': 'REPEAT_TIMES_FIELD_TYPE'
 };

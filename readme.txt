@@ -47,6 +47,18 @@ Basic Steps
 
 == Changelog ==
 
+= 1.2 =
+
+* Add some translations and error messages
+* Add a widget to play random verses
+* Styling error/warning messages shown to the user
+* Rename player holder div id
+
+= 1.1.2 =
+
+* Add some missing translations
+* Hot fix for tracks link
+
 = 1.1.1 =
 
 * make default "go"

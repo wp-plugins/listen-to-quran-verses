@@ -3,7 +3,7 @@
 Plugin Name: Listen to Quran Verses
 Plugin URI: http://listenquran.wadakkir.org/
 Description: This plugin let's you easily add Quran to your website with a flexible way to help people memorize its verses, and a very simple, easy to integrate within the current theme, and fully customizable interface supporting LTR as well as RTL design form. demo on http://www.wadakkir.org/
-Version: 1.1.1
+Version: 1.2
 Author: Larbi Abu Romaïssae
 Author URI: http://aburomaissae.wadakkir.org
 License: GPLv2 or later
@@ -17,7 +17,12 @@ function setPlayerForm ($content)
 	if(preg_match("/{QuranVerses}/", $content))
 	{
 		// load javascript files
-		loadScripts();
+		loadGeneralScripts();
+		wp_enqueue_script(
+			'mqvscript'
+			, plugins_url('/js/script.js', __FILE__)
+			, array("mqvjqautocomplete","jquery")
+		);
 		// read the form html 
 		$html = file_get_contents(plugin_dir_path(__FILE__)."form.html");
 		// appending the form html by a placeholder for the player
@@ -38,7 +43,7 @@ function setPlayerForm ($content)
 /**
 This function include the necessary scripts for the plugin to work properly
 */
-function loadScripts() {
+function loadGeneralScripts() {
 	wp_enqueue_script('jquery');
 	
 	wp_enqueue_script(
@@ -76,13 +81,16 @@ function loadScripts() {
 		, array("jquery")
 	);
 	wp_enqueue_script(
+		'mqvjqtozindex'
+		, plugins_url('/js/jquery.topzindex.min.js', __FILE__)
+		, array("jquery")
+	);
+	wp_enqueue_script(
 		'mqvmediaplayerscript'
 		, plugins_url('/mediaplayer/jwplayer.js', __FILE__)
 	);
-	wp_enqueue_script(
-		'mqvscript'
-		, plugins_url('/js/script.js', __FILE__)
-		, array("mqvjqautocomplete","jquery")
-	);
 }
+
+include_once "widget/widget.php";
+
 ?>

@@ -7,7 +7,7 @@ Main script file:
 */
 
 /*## LOAD THE PLAYER   ##*/
-jwplayer('mediaspace').setup({
+jwplayer('mqv-mediaspace').setup({
   'flashplayer': flashplayer,
   'file': file,
   'controlbar': 'bottom',
@@ -17,12 +17,13 @@ jwplayer('mediaspace').setup({
 /* ##################### */
 
 // the jwPlayer object
-player = jwplayer('mediaspace');
+player = jwplayer('mqv-mediaspace');
 startAyah = 1;
 endAyah = 1;
 ayahRepeatCurrent = 1;
 totalRepeatCurrent = 1;
 totalAyah = 0;
+currentTrackDuration = 0; // in milliseconde
 
 // global variable to defined wether we need to log debug messages or not
 debug = true;
@@ -82,6 +83,8 @@ jQuery("#start-reading").click(function(){
 
 // on play event: fired every time an media is played (item from the playlist)
 player.onPlay(function(){
+	mqvLog("Duration: "+ player.getDuration());
+	currentTrackDuration = player.getDuration() * 1000; // in milliseconde
 	// moved to onPlaylistItem
 });
 
@@ -91,6 +94,7 @@ player.onPlaylistItem(function(evt){
 	mqvLog("EVENT:"+evt["index"]);
 	// set the playlist index of the current played item
 	ayahIndexPlay = evt["index"];
+	
 	// create the playlist item
 	// initializing the pagging items for the playlist
 	initPlayList();
@@ -124,7 +128,7 @@ player.onComplete(function(){
 	var currentAyah = parseInt(startAyah) + ayahIndexPlay;
 	if(currentAyah <  parseInt(endAyah)) {
 		// if we are still in the interval we play the next item
-		player.playlistNext();
+		playNext();
 		return;
 	}
 	// if not we check for the "repeat all" checkbox
@@ -137,7 +141,7 @@ player.onComplete(function(){
 			if( limit == 0 || totalRepeatCurrent < limit){
 				// if checked and the limit repeat isn't reached play again the same playlist 
 				mqvLog("Will repeat");
-				player.playlistNext();
+				playNext();
 				totalRepeatCurrent ++;
 			}
 		}
@@ -174,6 +178,11 @@ jQuery("#ayah-e, #ayah-b").change(function(){
 	}
 
 	var v = parseInt($(this).val());
+	if(!$.isNumeric(v)){
+		insertMsg($(this), dicoVars['START_END_FIELD_TYPE'], true);
+		return;
+	}
+
 	if(v > totalAyah || v < 1){
 		defaultVal = ( v < 1) ? 1 : totalAyah;
 		$(this).val(defaultVal);
@@ -189,6 +198,11 @@ jQuery("#ayah-e, #ayah-b").change(function(){
 jQuery("#ayah-repeat-verse").change(function(){
 
 	var v = parseInt($(this).val());
+	if(!$.isNumeric(v)){
+		insertMsg($(this), dicoVars['REPEAT_TIMES_FIELD_TYPE'], true);
+		return;
+	}
+
 	if(v < 1){
 		$(this).val(1);
 		insertMsg($(this), dicoVars['REPEAT_TIME_MIN_VAL']);
@@ -202,6 +216,13 @@ jQuery("#ayah-repeat-verse").change(function(){
 
 
 /* *******  FUNCTIONS ******** */
+
+function playNext(){
+	setTimeout(function(){
+		player.playlistNext();
+	}
+	,0);//currentTrackDuration);
+}
 
 function loadPlayList(play){
 	
@@ -257,7 +278,7 @@ function insertMsg(obj,msg, err){
 	$span.addClass("mqv-interval-notes");
 	$span.text(msg);
 	obj.parent().append(span);
-	$span.fadeIn().delay(2500).fadeOut(3000);
+	$span.topZIndex().fadeIn().delay(2500).fadeOut(3000);
 }
 
 // initializing the form element on the change event of the sourah list
@@ -414,7 +435,7 @@ receiter = "warsh_ibrahim_aldosary/";
 */
 /** SERVER CONFIGURATION **
 protocole = "http://";
-host = "gem.everyayah.com/";
+host = "www.everyayah.com/";
 path = "data/warsh/";
 receiter = "warsh_ibrahim_aldosary_128kbps/";
 
