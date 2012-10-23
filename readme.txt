@@ -1,6 +1,6 @@
 === Listen to Quran Verses  ===
 Contributors: ibralnet
-Tags: quran, memorising, verses, list, play, player
+Tags: quran, memorising, verses, list, play, player, random
 Requires at least: 3.0.1
 Tested up to: 3.4.2
 Stable tag: 1.1.2
@@ -44,6 +44,7 @@ Basic Steps
 
 1. Enlgish interface showing the new interface
 2. Enlgish interface showing the new autocomplete function & repeat the whole interface hint
+3. English version of the widget to play a random ayah every time the page loaded
 
 == Changelog ==
 
@@ -70,9 +71,11 @@ Basic Steps
 * add sourah number in the list
 
 = 1.1 =
+
 * add limit function to repeat all
 * bugfixing playlist item
 
 = 1.0 =
+
 * first release
  
