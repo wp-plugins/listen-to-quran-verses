@@ -26,7 +26,7 @@ totalAyah = 0;
 currentTrackDuration = 0; // in milliseconde
 
 // global variable to defined wether we need to log debug messages or not
-debug = true;
+debug = false;
 
 /* ********* EVENTS ******** */
 
