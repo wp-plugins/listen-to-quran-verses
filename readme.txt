@@ -13,6 +13,8 @@ A Quran player developed for the purpose to listen and/or memorize the Quran wit
 
 Simple functionnality, but yet very usefull way to listen to Quran verse by verse, specially for people trying to revise/memorise some verses, this plugin tries to let you use the functionnality with an easy interface, with a support for both RTL and LTR directions and a bilingue form.
 
+<img src="http://dev.wadakkir.org/icons/new.png" width="48" height="48" alt="New" style="vertical-align:middle;"> This version adds a widget which plays a random ayah every time it load 
+
 The plugin switches automatically the languages and direction based on your wordpress installation
 
 Supports Arabic and English (and therefore most of latin languages)
