@@ -1,6 +1,6 @@
 === Listen to Quran Verses  ===
 Contributors: ibralnet
-Tags: quran, memorising, verses, list, play, player
+Tags: quran, memorising, verses, list, play, player, random, widget
 Requires at least: 3.0.1
 Tested up to: 3.4.2
 Stable tag: 1.2
@@ -11,7 +11,7 @@ A Quran player developed for the purpose to listen and/or memorize the Quran wit
 
 == Description ==
 
-Simple functionnality, but yet very usefull way to listen to Quran verse by verse, specially for people trying to revise/memorise some verses, this plugin tries to let you use the functionnality with an easy interface, with a support for both RTL and LTR directions and a bilingue form.
+Simple functionnality, but yet very usefull way to listen to Quran verse by verse, specially for people trying to revise/memorise some verses, this plugin tries to let you use the functionnality with an easy interface, with a support for both RTL and LTR directions and a bilingue form, including a widget which plays a random ayah every time it load. 
 
 The plugin switches automatically the languages and direction based on your wordpress installation
 
@@ -31,21 +31,35 @@ Your comments or ideas are very welcome, don't hesitate to contact me for any qu
 
 == Installation ==
 
+<h3>Hint</h3>
 make sure you add `{QuranVerses}` in your new page or new post. so it start showing instantly.
 
-Basic Steps
+<h3>Basic Steps</h3>
 
 1. Upload `plugin-name.php` to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Place `{QuranVerses}` anywhere in your page/post content.
+
+<h3>IMPORTANT NOTE:</h3>
+
+This plugin will only work if your theme allows inserting code in the HEAD and FOOTER sections of your blog.
+
+<h3>Useful links:</h3>
+1. <a href="">Video tutorial on intalling the plugin</a>
+1. <a href="">Video tutorial on how to use the plugin</a>
 
 
 == Screenshots ==
 
 1. Enlgish interface showing the new interface
 2. Enlgish interface showing the new autocomplete function & repeat the whole interface hint
+3. English version of the widget to play a random ayah every time the page loaded
 
 == Changelog ==
+
+= 1.2.1 =
+
+* Fixing the bug of conflict with the jquery-ui scripts
 
 = 1.2 =
 
@@ -70,9 +84,10 @@ Basic Steps
 * add sourah number in the list
 
 = 1.1 =
+
 * add limit function to repeat all
 * bugfixing playlist item
 
 = 1.0 =
+
 * first release
- 
