@@ -3,7 +3,7 @@ Contributors: ibralnet
 Tags: quran, memorising, verses, list, play, player, random, widget
 Requires at least: 3.0.1
 Tested up to: 3.4.2
-Stable tag: 1.2.1
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -45,8 +45,8 @@ make sure you add `{QuranVerses}` in your new page or new post. so it start show
 This plugin will only work if your theme allows inserting code in the HEAD and FOOTER sections of your blog.
 
 <h3>Useful links:</h3>
-1. <a href="">Video tutorial on intalling the plugin</a>
-1. <a href="">Video tutorial on how to use the plugin</a>
+1. <a href="http://www.youtube.com/watch?v=bd-iGTudp4c" title="Install and use wordpress plugin (Listen to Quran Verses)">Video tutorial on intalling the plugin</a>
+1. <a href="http://www.youtube.com/watch?v=6KdemRIoi84" title="How to Use Listen to Quran Plugin">Video tutorial on how to use the plugin</a>
 
 
 == Screenshots ==
