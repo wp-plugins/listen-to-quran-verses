@@ -1,7 +1,7 @@
-table#mqv-container tr td:nth-child(1){
+table.mqv-container tr td:nth-child(1){
 	width: 40%;
 }
-table#mqv-container tr td:nth-child(2){
+table.mqv-container tr td:nth-child(2){
 	width: 60%;
 }
 
@@ -64,4 +64,18 @@ input {
 }
 #repeat-all-control {
 	display: none;
+}
+
+#advanced-settings-note, #show-hide {
+    color: gray;
+    font-size: small;
+    padding: 5px;
+    font-family: Jawbox;
+}
+
+#show-hide{
+	text-decoration: underline;
+	color: darkgray;
+	font-style: italic;
+	cursor: pointer;
 }

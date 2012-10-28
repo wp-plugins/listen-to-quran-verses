@@ -24,9 +24,10 @@ ayahRepeatCurrent = 1;
 totalRepeatCurrent = 1;
 totalAyah = 0;
 currentTrackDuration = 0; // in milliseconde
+repeatAyahDurationTimer = null;
 
 // global variable to defined wether we need to log debug messages or not
-debug = true;
+debug = false;
 
 /* ********* EVENTS ******** */
 
@@ -71,7 +72,6 @@ jQuery(document).ready(function(){
 
 // When the user start playing the select verses
 jQuery("#start-reading").click(function(){
-	
 	// validating the form values
 	if(!isValid())
 		return;
@@ -79,12 +79,19 @@ jQuery("#start-reading").click(function(){
 	// load and play the playlist
 	loadPlayList();
 });
+jQuery("#show-hide").click(function(){
+	$("#mqv-advance-player-setting").slideToggle();
+});
 
 
 // on play event: fired every time an media is played (item from the playlist)
 player.onPlay(function(){
 	mqvLog("Duration: "+ player.getDuration());
-	currentTrackDuration = player.getDuration() * 1000; // in milliseconde
+	if( $('input[name=repeat-after-reciter]:checked').val() == "yes" )
+		currentTrackDuration = player.getDuration() * 1000; // in milliseconde
+	else{
+		currentTrackDuration = 0;
+	}
 	// moved to onPlaylistItem
 });
 
@@ -118,7 +125,7 @@ player.onComplete(function(){
 	if(ayahRepeatCurrent < parseInt(jQuery("#ayah-repeat-verse").val())){
 		// if the repeating flag hasn't been reached yet, we play again the same media
 		ayahRepeatCurrent++;
-		player.play();
+		playNext(true);
 		return;
 	}
 	// initilize the repeat counter
@@ -137,7 +144,7 @@ player.onComplete(function(){
 			mqvLog("Field content is numeric");
 			var limit = parseInt(jQuery("#ayah-repeat-all-nbr").val());
 			mqvLog("Limit: "+limit);
-			mqvLog("Repeat Current: "+ totalRepeatCurrent)
+			mqvLog("Repeat Current: "+ totalRepeatCurrent);
 			if( limit == 0 || totalRepeatCurrent < limit){
 				// if checked and the limit repeat isn't reached play again the same playlist 
 				mqvLog("Will repeat");
@@ -214,14 +221,62 @@ jQuery("#ayah-repeat-verse").change(function(){
 	mqvLog("Value: "+v);
 });
 
+$('input[name=repeat-after-reciter]').change(function(){
+	if($('input[name=repeat-after-reciter]:checked').val() == "yes")
+		insertMsg($("#yes-repeat-after-reciter"),"This will take effect starting from the next played ayah");
+});
+
 
 /* *******  FUNCTIONS ******** */
+function showCountDown(){
+	var span = document.createElement("span");
+	var $span = $(span);
+	$span.addClass("mqv-note-field");
+	
+	$span.addClass("mqv-interval-notes");
+	
+	// content management
+	//$span.text(msg);
+	var timeInSecond = currentTrackDuration/1000; 
+	$span.text( Math.floor( timeInSecond ));
 
-function playNext(){
-	setTimeout(function(){
+	$("#yes-repeat-after-reciter").parent().append(span);
+	$span.topZIndex().fadeIn().delay(1000).fadeOut(currentTrackDuration);
+
+	if(repeatAyahDurationTimer != null)
+		clearInterval(repeatAyahDurationTimer);
+
+	repeatAyahDurationTimer = setInterval(function(){
+		var v = parseInt($span.text());
+		v = v-1;
+		if(v < 0 ) {
+			clearInterval(repeatAyahDurationTimer);
+			return;
+		}
+
+		v = Math.floor(v);
+		$span.text(v);
+	},1000);
+}
+
+function playNext(rply){
+
+	if( $('input[name=repeat-after-reciter]:checked').val() == "no" ){
 		player.playlistNext();
+		return;
 	}
-	,0);//currentTrackDuration);
+
+	if(currentTrackDuration > 0)
+		showCountDown();
+
+	setTimeout(function(){
+		if(rply === true)
+			player.play();
+		else
+			player.playlistNext();
+	}
+	,currentTrackDuration);
+	
 }
 
 function loadPlayList(play){
@@ -426,10 +481,6 @@ function mqvLog(msg) {
 		console.log(msg);
 }
 
-protocole = "http://";
-host = "localhost/";
-path = "";
-receiter = "warsh_ibrahim_aldosary/";
 /*
 	Configuring the URL source:
 */

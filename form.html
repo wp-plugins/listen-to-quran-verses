@@ -6,7 +6,7 @@ you can understand the form by urself, quite easy isn't it ;)
 
 <link rel="stylesheet" href="__PLUGINS_URL__/css/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
 
-<table id="mqv-container">
+<table class="mqv-container">
 	<tr>
 		<td>
 			<label for="sourah" class="toTranslate" transindex="SOURAH">Sourah: </label>
@@ -27,35 +27,51 @@ you can understand the form by urself, quite easy isn't it ;)
 		</td>
 	</tr>
 	<tr>
-		<td>
-			<label for="ayah-repeat-verse" class="toTranslate" transindex="REPEAT" >Repeat times (per verse): </label>
-		</td>
-		<td>
-			<input type="number" name="ayah-repeat-verse" id="ayah-repeat-verse" value="1" title="You can change this even while playing the verses (ayah)" /> 
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<label for="ayah-repeat-all" class="toTranslate" transindex="REPEAT-ALL" >Repeat all: </label>
-		</td>
-		<td>
-			<input type="checkbox" name="ayah-repeat-all" id="ayah-repeat-all" />
-			<p id="repeat-all-control">
-				<input type="number" name="ayah-repeat-all-nbr" id="ayah-repeat-all-nbr" value="0" title="You can change this even while playing" disabled />
-				<span class="toTranslate" transindex="TIMES">Time (s)</span><span class="mqv-attention-style"">*</span><br/>
-				(<span class="mqv-attention-style"">*</span>): <span class="mqv-hint-field toTranslate" transindex="1_AND_2_HINT">1 stands for playing the selection One time, 2 for Two times and so on, </span><span class="mqv-important-field toTranslate" transindex="0_HINT"> 0 is to loop infinitly</span>
-			</p>
-		</td>
-	</tr>
-	<tr>
 		<td>&nbsp;</td>
 		<td>
 			<input type="button" id="start-reading" value="Play selection !">
 		</td>
 	</tr>
-	<tr>
-		<td colspan="2" style="text-align: right; direction: ltr;">
-			Powered by: <a href="http://listenquran.wadakkir.org/" target="_blank"><img src="http://dev.wadakkir.org/logo.png" width="55" height="55" alt="Logo" style="vertical-align: middle;"></a>
-		</td>
-	</tr>
 </table>
+
+<h3>Advanced:<span id="show-hide">Show/Hide</span><span id="advanced-settings-note" class="toTranslate" transindex="ADVANCED-SETTING-NOTES">(Those settings could be changed while playing the selection)</span></h3>
+
+<div id="mqv-advance-player-setting">
+	<table class="mqv-container">
+		<tr>
+			<td>
+				<label for="ayah-repeat-verse" class="toTranslate" transindex="REPEAT" >Repeat times (per verse): </label>
+			</td>
+			<td>
+				<input type="number" name="ayah-repeat-verse" id="ayah-repeat-verse" value="1" /> 
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="ayah-repeat-all" class="toTranslate" transindex="REPEAT-ALL" >Repeat all: </label>
+			</td>
+			<td>
+				<input type="checkbox" name="ayah-repeat-all" id="ayah-repeat-all" />
+				<p id="repeat-all-control">
+					<input type="number" name="ayah-repeat-all-nbr" id="ayah-repeat-all-nbr" value="0" title="You can change this even while playing" disabled />
+					<span class="toTranslate" transindex="TIMES">Time (s)</span><span class="mqv-attention-style"">*</span><br/>
+					(<span class="mqv-attention-style"">*</span>): <span class="mqv-hint-field toTranslate" transindex="1_AND_2_HINT">1 stands for playing the selection One time, 2 for Two times and so on, </span><span class="mqv-important-field toTranslate" transindex="0_HINT"> 0 is to loop infinitly</span>
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label class="toTranslate" transindex="REPEAT-AFTER-RECITER" >Would you like to repeat after the reciter ?</label>
+			</td>
+			<td>
+				<input type="radio" name="repeat-after-reciter" value="yes" id="yes-repeat-after-reciter"> <label for="yes-repeat-after-reciter" class="toTranslate" transindex="YES" >YES</label>
+				<input type="radio" name="repeat-after-reciter" value="no" id="no-repeat-after-reciter" checked> <label for="no-repeat-after-reciter" class="toTranslate" transindex="NO" >NO</label>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="text-align: right; direction: ltr;">
+				Powered by: <a href="http://listenquran.wadakkir.org/" target="_blank"><img src="http://dev.wadakkir.org/logo.png" width="55" height="55" alt="Logo" style="vertical-align: middle;"></a>
+			</td>
+		</tr>
+	</table>
+</div>

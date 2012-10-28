@@ -56,10 +56,6 @@ function threeDigit(nbr) {
 	return tmp.substr(tmp.length-3);
 }
 
-protocole = "http://";
-host = "localhost/";
-path = "";
-receiter = "warsh_ibrahim_aldosary/";
 /*
 	Configuring the URL source:
 */

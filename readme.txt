@@ -31,18 +31,18 @@ Your comments or ideas are very welcome, don't hesitate to contact me for any qu
 
 == Installation ==
 
-<h3>Hint</h3>
-make sure you add `{QuranVerses}` in your new page or new post. so it start showing instantly.
-
 <h3>Basic Steps</h3>
 
 1. Upload `plugin-name.php` to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Place `{QuranVerses}` anywhere in your page/post content.
 
-<h3>IMPORTANT NOTE:</h3>
+<h3>IMPORTANT NOTES:</h3>
 
-This plugin will only work if your theme allows inserting code in the HEAD and FOOTER sections of your blog.
+* This plugin will only work if your theme allows inserting code in the HEAD and FOOTER sections of your blog.
+* make sure you add `{QuranVerses}` in your new page or new post. so it start showing instantly.
+* The plugin needs to be connected to internet in order to load the media files (can't be done if you are working on a local machine without an active internet connection)
+
 
 <h3>Useful links:</h3>
 1. <a href="http://www.youtube.com/watch?v=bd-iGTudp4c" title="Install and use wordpress plugin (Listen to Quran Verses)">Video tutorial on intalling the plugin</a>
@@ -56,6 +56,11 @@ This plugin will only work if your theme allows inserting code in the HEAD and F
 3. English version of the widget to play a random ayah every time the page loaded
 
 == Changelog ==
+
+= 1.3 =
+
+* Separate simple from advanced setting into two groups
+* Adding a pause to wait for the listener to repeat after the reciter
 
 = 1.2.1 =
 
