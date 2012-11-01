@@ -11,18 +11,22 @@ A Quran player developed for the purpose to listen and/or memorize the Quran wit
 
 == Description ==
 
-Simple functionnality, but yet very usefull way to listen to Quran verse by verse, specially for people trying to revise/memorise some verses, this plugin tries to let you use the functionnality with an easy interface, with a support for both RTL and LTR directions and a bilingue form, including a widget which plays a random ayah every time it load. 
+Simple functionnality, but yet very usefull way to listen to Quran verse by verse, specially for people trying to revise/memorise some verses, this plugin tries to let you use the functionnality with an easy interface, with a support for both RTL and LTR directions and a bilingue form, including a widget which plays a random recitation every time it load. 
 
 The plugin switches automatically the languages and direction based on your wordpress installation
 
-Supports Arabic and English (and therefore most of latin languages)
-You can select an interval of verses to play
-define the number of times each verse will be repeated
-You can also repeat the whole interval as many times as you want by setting this functionality to ON.
+* Supports Arabic and English (and therefore most of latin languages)
+* You can select an interval of verses to play
+* define the number of times each verse will be repeated
+* You can also repeat the whole interval as many times as you want by setting this functionality to ON.  
 
 A nice paging and a progress bar is there to help you know the current and already played verses from the interval you selected
 
 The plugin is at the moment containing the recitation of a single reciter Ibrahim Aldosary (warsh), Soon further reciters will be included.
+
+* Activating the random recitation widget, will allow you to play a random recitation every time the page loaded
+* Users view the recitation download progress, pause, stop, and play the recitation at will
+* We are preparing the recitations continuesly, if you would like to add a recitation just contact us and we will show you how to add as many recitations as you want
 
 Your comments or ideas are very welcome, don't hesitate to contact me for any question or suggestion.
 
