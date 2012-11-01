@@ -33,24 +33,35 @@ class Random_Ayah_Widget extends WP_Widget
  
     if (!empty($title))
       echo $before_title . $title . $after_title;;
-    // include widget scripts
-    
-   loadGeneralScripts();
-   wp_enqueue_script(
-		'mqv-widget-script'
-		, plugins_url("/js/script.js", __FILE__)
-		, array("jquery")
-	);
-    
+
     // Do Your Widgety Stuff Here...
 ?>
-
-<div id="mqv-widget-information">
-	<p id="mqv-widget-information-sourah-and-ayah"></p>
-	<p id="mqv-widget-information-ayah-time"></p>
+<div id="mqv-widget-waiting" style="height:20px;">
+Loading, Please wait...
+</div>
+<div id="mqv-widget-information" style="display:none;">
+	<table>
+		<tr>
+			<td id="mqv-widget-reciter" colspan="3"></td>
+		</tr>
+		<tr class="mqv-widget-center">
+			<td id="mqv-widget-verse" colspan="3"></td>
+		</tr>
+		<tr class="mqv-widget-center">
+			<td id="mqv-widget-sourah"></td>
+			<td id="mqv-widget-verse-nbr"></td>
+			<td> ( <span id="mqv-widget-recitation-remaining-seconds"></span> )</td>
+		</tr>
+		<tr class="mqv-widget-center">
+			<td colspan="3" id="mqv-widget-player-controller">
+				<img id="mqv-widget-play" src="<?php echo plugins_url("/icons/play.png", __FILE__); ?>" alt="Play"/>
+				<img id="mqv-widget-pause" src="<?php echo plugins_url("/icons/pause.png", __FILE__); ?>" alt="Pause"/>
+				<img id="mqv-widget-stop" src="<?php echo plugins_url("/icons/stop.png", __FILE__); ?>" alt="Stop"/>
+			</td>
+		</tr>
+	</table>
 </div>
 <div id="mqv-widget-mediaspace" style="display:none;"></div>
-<div id="mqv-widget-replay" style="cursor: pointer; border-bottom: thin dashed; text-align: center; border-top: thin dashed;">Replay</div>
 <script type='text/javascript'>
 	// the flash player location
 	var w_flashplayer = '<?php echo plugins_url("/", __FILE__)."../mediaplayer/player.swf";?>';
@@ -58,7 +69,26 @@ class Random_Ayah_Widget extends WP_Widget
 
 
 <?php
+	// include widget scripts
+
+   loadGeneralScripts();
+   if( get_locale() == "ar" || true ){
+   	?>
+<script type='text/javascript'>
+	// define the arabic language
+	var w_isArabLang = true;
+</script>
+   	<?php 
+   }
+
+   wp_enqueue_script(
+   		'mqv-widget-script'
+		, plugins_url("/js/script.js", __FILE__)
+		, array("jquery")
+	);
+
     echo $after_widget;
   }
 }
+
 add_action( 'widgets_init', create_function('', 'return register_widget("Random_Ayah_Widget");') );

@@ -229,11 +229,15 @@ $('input[name=repeat-after-reciter]').change(function(){
 
 /* *******  FUNCTIONS ******** */
 function showCountDown(){
+	// remove all previous and hidden elements
+	$("#mqv-countdown-notes").remove();
+
 	var span = document.createElement("span");
 	var $span = $(span);
 	$span.addClass("mqv-note-field");
-	
-	$span.addClass("mqv-interval-notes");
+	$span.addClass("mqv-countdown-notes");
+	$span.css("padding","15px");
+	$span.attr("id","mqv-countdown-notes");
 	
 	// content management
 	//$span.text(msg);
@@ -241,13 +245,13 @@ function showCountDown(){
 	$span.text( Math.floor( timeInSecond ));
 
 	$("#yes-repeat-after-reciter").parent().append(span);
-	$span.topZIndex().fadeIn().delay(1000).fadeOut(currentTrackDuration);
+	$span.topZIndex().fadeIn().delay(currentTrackDuration * 25 / 100).fadeOut(currentTrackDuration);
 
 	if(repeatAyahDurationTimer != null)
 		clearInterval(repeatAyahDurationTimer);
 
 	repeatAyahDurationTimer = setInterval(function(){
-		var v = parseInt($span.text());
+		var v = parseInt($("#mqv-countdown-notes").text());
 		v = v-1;
 		if(v < 0 ) {
 			clearInterval(repeatAyahDurationTimer);
@@ -255,7 +259,7 @@ function showCountDown(){
 		}
 
 		v = Math.floor(v);
-		$span.text(v);
+		$("#mqv-countdown-notes").text(v);
 	},1000);
 }
 
@@ -484,10 +488,9 @@ function mqvLog(msg) {
 /*
 	Configuring the URL source:
 */
-/** SERVER CONFIGURATION **
+/** SERVER CONFIGURATION **/
 protocole = "http://";
 host = "www.everyayah.com/";
 path = "data/warsh/";
 receiter = "warsh_ibrahim_aldosary_128kbps/";
-
-/* ****** */
+/** ****** **/

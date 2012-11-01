@@ -1,68 +1,89 @@
-var ayahDurationTimer = null;
+var w_player = null;
+var w_loader = false;
 
 jQuery(document).ready(function(){
 	
-	w_sourah = Math.floor((Math.random()*114)+1);
-	w_sourah3D = threeDigit(w_sourah);
-
-	w_ayah = Math.floor((Math.random() * ayahPerSourah[w_sourah3D])+1);
-
-	w_file = w_sourah3D + threeDigit(w_ayah) +".mp3";
-
 	jwplayer('mqv-widget-mediaspace').setup({
 	  'flashplayer': w_flashplayer,
-	  'file': protocole + host + path + receiter + w_file,
 	  'volume': '100',
-	  //'plugins': 'revolt',
 	  'controlbar': 'none',
 	  'autostart': 'true',
 	  'stretching': 'fill',
 	  'width': '100%',
 	  'height': '0'
 	});
+
+	// the jwPlayer object
+	w_player = jwplayer('mqv-widget-mediaspace');
+
+	w_player.onTime(function(v1){
+		if(!w_loader)
+			return;
+		var v = v1.duration - v1.position;
+		var date = new Date(null);
+		date.setSeconds(v);
+		var time = date.toTimeString().substr(3, 5);
+		jQuery("#mqv-widget-recitation-remaining-seconds").text(time);
+	});
+
+	w_file = $.get();
+	url = "http://dev.wadakkir.org/WP/listenquran/recitations/getRecitation.php";
+	url += (typeof(w_isArabLang) != "undefined" && w_isArabLang === true) ? "?lang=ar":"";
+
+	$.ajax({
+		url: url,
+		dataType: 'jsonp',
+		success: function(data) {
+			w_file = eval(data);
+			startEngine(w_file);
+		}
+	});
 	
-	jQuery("#mqv-widget-information-sourah-and-ayah").text(sourahNames[w_sourah-1] + " : " + w_ayah);
+	w_player.onBeforePlay(function(){
+		$("#mqv-widget-waiting").slideUp('500').delay().after(function(){
+			$("#mqv-widget-information").slideDown();
+		});
+	});
+	w_player.onBufferChange(function(pct){
+		if(pct.bufferPercent == 100)
+			w_loader = true;
+		jQuery("#mqv-widget-recitation-remaining-seconds").text(pct.bufferPercent + '%');
+	});
+});
+
+function startEngine(w_file){
+	// set the reciter name:
+	$("#mqv-widget-reciter").text( w_file.reciter );
+	$("#mqv-widget-verse").text( w_file.verse );
+	$("#mqv-widget-sourah").text( w_file.sourah );
+	$("#mqv-widget-verse-nbr").text( w_file.verse_nbr );
+	
 	jQuery("mqv-widget-mediaspace_wrapper").css("display","none");
 
 	//Styling information zone
-	jQuery("#mqv-widget-information").css("height","30px");
-	jQuery("#mqv-widget-information-sourah-and-ayah").css("float","left");
-	jQuery("#mqv-widget-information-ayah-time").css("float","right");
+	jQuery("#mqv-widget-information tr.mqv-widget-center td").css("text-align","center");
+	jQuery("#mqv-widget-information table").css("width","100%");
+	jQuery("#mqv-widget-information td, #mqv-widget-information img").css("padding","5px");
+	jQuery("#mqv-widget-information table td, #mqv-widget-information table img").css("vertical-align","middle");	
+	jQuery("#mqv-widget-information img").css("cursor","pointer");
+	jQuery("#mqv-widget-player-controller").css("direction","ltr");
 	
-	// the jwPlayer object
-	w_player = jwplayer('mqv-widget-mediaspace');
-	
-	w_player.onPlay(function(){
-		jQuery("#mqv-widget-information-ayah-time").text( Math.floor( w_player.getDuration() ));
-		if(ayahDurationTimer != null)
-			clearInterval(ayahDurationTimer);
-		ayahDurationTimer = setInterval(function(){
-			var v = w_player.getDuration() - w_player.getPosition();
-			v = Math.floor(v);
-			jQuery("#mqv-widget-information-ayah-time").text(v);
-		},1000);
-	});
-	w_player.onComplete(function(){
-		clearInterval(ayahDurationTimer);
-	});
+	w_player.load(w_file.url);
+}
+
+jQuery("#mqv-widget-play").click(function(){
+	w_player.play(true);
 });
 
-jQuery("#mqv-widget-replay").click(function(){
-	w_player.stop();
-	w_player.play();
+jQuery("#mqv-widget-pause").click(function(){
+	w_player.pause(true);
 });
+
+jQuery("#mqv-widget-stop").click(function(){
+	w_player.stop();
+});
+
 function threeDigit(nbr) {
 	var tmp = "000" + nbr;
 	return tmp.substr(tmp.length-3);
 }
-
-/*
-	Configuring the URL source:
-*/
-/** SERVER CONFIGURATION **
-protocole = "http://";
-host = "www.everyayah.com/";
-path = "data/warsh/";
-receiter = "warsh_ibrahim_aldosary_128kbps/";
-
-/* ****** */
