@@ -1,16 +1,16 @@
 <?php
 
-class Random_Ayah_Widget extends WP_Widget
+class Random_Recitation_Widget extends WP_Widget
 {
-  function Random_Ayah_Widget()
+  function Random_Recitation_Widget()
   {
-    $widget_ops = array('classname' => 'Random_Ayah_Widget', 'description' => 'This widgets plays a random ayah every time the page is loaded');
-    $this->WP_Widget('Random_Ayah_Widget', 'Random Ayah Widget', $widget_ops);
+    $widget_ops = array('classname' => 'Random_Recitation_Widget', 'description' => 'This widgets plays a random Recitation every time the page is loaded');
+    $this->WP_Widget('Random_Recitation_Widget', 'Random Recitation Widget', $widget_ops);
   }
  
   function form($instance)
   {
-    $instance = wp_parse_args((array) $instance, array( 'title' => 'Random Ayah' ));
+    $instance = wp_parse_args((array) $instance, array( 'title' => 'Random Recitation' ));
     $title = $instance['title'];
 ?>
   <p><label for="<?php echo $this->get_field_id('title'); ?>">Title: <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></label></p>
@@ -72,7 +72,7 @@ Loading, Please wait...
 	// include widget scripts
 
    loadGeneralScripts();
-   if( get_locale() == "ar" || true ){
+   if( get_locale() == "ar"){
    	?>
 <script type='text/javascript'>
 	// define the arabic language
@@ -91,4 +91,4 @@ Loading, Please wait...
   }
 }
 
-add_action( 'widgets_init', create_function('', 'return register_widget("Random_Ayah_Widget");') );
+add_action( 'widgets_init', create_function('', 'return register_widget("Random_Recitation_Widget");') );
