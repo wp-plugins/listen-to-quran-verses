@@ -61,6 +61,8 @@ Your comments or ideas are very welcome, don't hesitate to contact me for any qu
 
 * Separate simple from advanced setting into two groups
 * Adding a pause to wait for the listener to repeat after the reciter
+* Removing "Random Ayah" Widget
+* Add "Random Recitation" Widget 
 
 = 1.2.1 =
 
