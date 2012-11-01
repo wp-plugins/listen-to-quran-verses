@@ -84,7 +84,7 @@ Loading, Please wait...
    wp_enqueue_script(
    		'mqv-widget-script'
 		, plugins_url("/js/script.js", __FILE__)
-		, array("jquery")
+		, array("jquery","mqvjqnoconflict")
 	);
 
     echo $after_widget;

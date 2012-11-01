@@ -61,6 +61,10 @@ Your comments or ideas are very welcome, don't hesitate to contact me for any qu
 
 == Changelog ==
 
+= 1.3.1 =
+
+* Bug fix for dependency and jQuery noConflict 
+
 = 1.3 =
 
 * Separate simple from advanced setting into two groups
