@@ -202,6 +202,24 @@ jQuery("#ayah-e, #ayah-b").change(function(){
 	}
 	mqvLog("Value: "+v);
 });
+
+jQuery("#ayah-repeat-all-nbr").change(function(){
+	var v = parseInt($(this).val());
+	if(!$.isNumeric(v)){
+		insertMsg($(this), dicoVars['REPEAT_TIMES_FIELD_TYPE'], true);
+		return;
+	}
+
+	if(v < 0){
+		$(this).val(0);
+		insertMsg($(this), dicoVars['REPEAT_ALL_TIME_MIN_VAL']);
+	}
+	else
+	{
+		$(".mqv-interval-notes").remove();
+	}
+	mqvLog("Value: "+v);
+});
 jQuery("#ayah-repeat-verse").change(function(){
 
 	var v = parseInt($(this).val());
@@ -223,7 +241,7 @@ jQuery("#ayah-repeat-verse").change(function(){
 
 $('input[name=repeat-after-reciter]').change(function(){
 	if($('input[name=repeat-after-reciter]:checked').val() == "yes")
-		insertMsg($("#yes-repeat-after-reciter"),"This will take effect starting from the next played ayah");
+		insertMsg($("#yes-repeat-after-reciter"), dicoVars['YES_REPEAT_AFTER_RECITER']);
 });
 
 
@@ -336,7 +354,8 @@ function insertMsg(obj,msg, err){
 	$span.addClass(noteTypeClass);
 	$span.addClass("mqv-interval-notes");
 	$span.text(msg);
-	obj.parent().append(span);
+	//obj.parent().append(span);
+	obj.after(span);
 	$span.topZIndex().fadeIn().delay(2500).fadeOut(3000);
 }
 

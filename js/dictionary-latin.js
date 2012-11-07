@@ -10,10 +10,12 @@ dicoVars = {
 	'VALID_SOURAH_SELECTION': 'Please select a valid sourah'
 	, 'START_END_INTERVAL': 'Starting/Ending should be within the interval of 1 and '
 	, 'REPEAT_TIME_MIN_VAL': 'Repeat times must be greated than 1'
+	, 'REPEAT_ALL_TIME_MIN_VAL': 'Repeat all times must be greated than 0'
 	, 'START_AYAH_MIN_VAL': 'Start ayah must be greater than 1'
 	, 'START_AYAH_MAX_VAL': 'Start ayah cannot be greater than '
 	, 'END_AYAH_MAX_VAL': 'End ayah cannot be greater than '
 	, 'END_AYAH_MIN_VAL': 'End ayah must be greater than start ayah '
 	, 'START_END_FIELD_TYPE': 'START_END_FIELD_TYPE'
 	, 'REPEAT_TIMES_FIELD_TYPE': 'REPEAT_TIMES_FIELD_TYPE'
+	, 'YES_REPEAT_AFTER_RECITER': 'This will take effect starting from the next played ayah'
 };

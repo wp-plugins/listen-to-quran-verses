@@ -15,7 +15,7 @@ Simple functionnality, but yet very usefull way to listen to Quran verse by vers
 
 The plugin switches automatically the languages and direction based on your wordpress installation
 
-* Supports Arabic and English (and therefore most of latin languages)
+* Supports Both RTL and LTR directions
 * You can select an interval of verses to play
 * define the number of times each verse will be repeated
 * You can also repeat the whole interval as many times as you want by setting this functionality to ON.  
@@ -28,7 +28,16 @@ The plugin is at the moment containing the recitation of a single reciter Ibrahi
 * Users view the recitation download progress, pause, stop, and play the recitation at will
 * We are preparing the recitations continuesly, if you would like to add a recitation just contact us and we will show you how to add as many recitations as you want
 
+
 Your comments or ideas are very welcome, don't hesitate to contact me for any question or suggestion.
+
+<h3>Languages<h/3>
+The plugin currently support:
+1. Aarbe
+1. English
+1. French (comming soon)
+
+If you wish to add your languages just submit a request with the contact page and we will contact you with a form where you can put your language translations
 
 1. <a href="http://listenquran.wadakkir.org/contact/">Developer contact page</a>
 1. <a href="http://listenquran.wadakkir.org">Online Demo</a>
@@ -60,6 +69,11 @@ Your comments or ideas are very welcome, don't hesitate to contact me for any qu
 3. English version of the widget to play a random ayah every time the page loaded
 
 == Changelog ==
+
+= 1.3.2 =
+
+* Add missing arabic translation
+* Change error/warning messages position
 
 = 1.3.1 =
 

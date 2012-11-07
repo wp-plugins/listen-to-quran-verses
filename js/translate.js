@@ -11,5 +11,5 @@ $(document).ready(function (){
 		$(this).text(dico[index]);
 	});
 	$("#start-reading").val(dico["GO"]);
-	$("#mqv-container").css("direction","rtl");
+	$(".mqv-container").css("direction","rtl");
 });
