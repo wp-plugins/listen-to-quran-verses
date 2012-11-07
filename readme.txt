@@ -33,6 +33,7 @@ Your comments or ideas are very welcome, don't hesitate to contact me for any qu
 
 <h3>Languages</h3>
 The plugin currently support:
+
 1. Aarbe
 1. English
 1. French (comming soon)
