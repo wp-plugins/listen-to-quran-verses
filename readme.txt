@@ -31,7 +31,7 @@ The plugin is at the moment containing the recitation of a single reciter Ibrahi
 
 Your comments or ideas are very welcome, don't hesitate to contact me for any question or suggestion.
 
-<h3>Languages<h/3>
+<h3>Languages</h3>
 The plugin currently support:
 1. Aarbe
 1. English
