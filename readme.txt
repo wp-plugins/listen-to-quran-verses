@@ -31,8 +31,9 @@ The plugin is at the moment containing the recitation of a single reciter Ibrahi
 
 Your comments or ideas are very welcome, don't hesitate to contact me for any question or suggestion.
 
-<h3>Languages<h/3>
+<h3>Languages</h3>
 The plugin currently support:
+
 1. Aarbe
 1. English
 1. French (comming soon)
@@ -69,6 +70,13 @@ If you wish to add your languages just submit a request with the contact page an
 3. English version of the widget to play a random ayah every time the page loaded
 
 == Changelog ==
+
+= 1.3.3 =
+
+- Add change recitation for widget
+- Solve slow websites problem
+- Review script dependencies 
+- Add some missing translations
 
 = 1.3.2 =
 

@@ -36,7 +36,7 @@ class Random_Recitation_Widget extends WP_Widget
 
     // Do Your Widgety Stuff Here...
 ?>
-<div id="mqv-widget-waiting" style="height:20px;">
+<div id="mqv-widget-waiting" style="height:20px;" class="toTranslate" transindex="PLEASE-WAIT">
 Loading, Please wait...
 </div>
 <div id="mqv-widget-information" style="display:none;">
@@ -57,6 +57,11 @@ Loading, Please wait...
 				<img id="mqv-widget-play" src="<?php echo plugins_url("/icons/play.png", __FILE__); ?>" alt="Play"/>
 				<img id="mqv-widget-pause" src="<?php echo plugins_url("/icons/pause.png", __FILE__); ?>" alt="Pause"/>
 				<img id="mqv-widget-stop" src="<?php echo plugins_url("/icons/stop.png", __FILE__); ?>" alt="Stop"/>
+			</td>
+		</tr>
+		<tr class="mqv-widget-center">
+			<td colspan="3" id="mqv-widget-get" class="toTranslate" transindex="GET_RECITATION">
+				Change Recitation
 			</td>
 		</tr>
 	</table>

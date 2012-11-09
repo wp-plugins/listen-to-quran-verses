@@ -42,4 +42,6 @@ dico = {
 	, 'SHOW-HIDE': 'إظهار/إخفاء'
 	, 'ADVANCED': 'خيارات متقدمة:'
 	, 'ADVANCED-SETTING-NOTES': '(يمكنك تغيير هذه الإعدادات أتناء التشغيل)'
+	, 'GET_RECITATION': 'تغيير التلاوة'
+	, 'PLEASE-WAIT': 'المرجو الانتظار...'
 };

@@ -25,19 +25,6 @@ jQuery(document).ready(function(){
 		var time = date.toTimeString().substr(3, 5);
 		jQuery("#mqv-widget-recitation-remaining-seconds").text(time);
 	});
-
-	w_file = $.get();
-	url = "http://dev.wadakkir.org/WP/listenquran/recitations/getRecitation.php";
-	url += (typeof(w_isArabLang) != "undefined" && w_isArabLang === true) ? "?lang=ar":"";
-
-	$.ajax({
-		url: url,
-		dataType: 'jsonp',
-		success: function(data) {
-			w_file = eval(data);
-			startEngine(w_file);
-		}
-	});
 	
 	w_player.onBeforePlay(function(){
 		$("#mqv-widget-waiting").slideUp('500').delay().after(function(){
@@ -49,7 +36,32 @@ jQuery(document).ready(function(){
 			w_loader = true;
 		jQuery("#mqv-widget-recitation-remaining-seconds").text(pct.bufferPercent + '%');
 	});
+	
+	jQuery("#mqv-widget-get").click(function(){
+		w_player.stop();
+		$("#mqv-widget-information").slideUp('500').delay().after(function(){
+			$("#mqv-widget-waiting").slideDown().delay().after(function(){
+				getRecitation();
+			});
+		});
+	});
+	getRecitation();
 });
+
+function getRecitation(){
+//	w_file = $.get();
+	url = "http://dev.wadakkir.org/WP/listenquran/recitations/getRecitation.php";
+	url += (typeof(w_isArabLang) != "undefined" && w_isArabLang === true) ? "?lang=ar":"";
+
+	$.ajax({
+		url: url,
+		dataType: 'jsonp',
+		success: function(data) {
+			w_file = eval(data);
+			startEngine(w_file);
+		}
+	});
+}
 
 function startEngine(w_file){
 	// set the reciter name:
@@ -63,9 +75,10 @@ function startEngine(w_file){
 	//Styling information zone
 	jQuery("#mqv-widget-information tr.mqv-widget-center td").css("text-align","center");
 	jQuery("#mqv-widget-information table").css("width","100%");
-	jQuery("#mqv-widget-information td, #mqv-widget-information img").css("padding","5px");
-	jQuery("#mqv-widget-information table td, #mqv-widget-information table img").css("vertical-align","middle");	
-	jQuery("#mqv-widget-information img").css("cursor","pointer");
+	jQuery("#mqv-widget-information td, #mqv-widget-information img, #mqv-widget-get").css("padding","5px");
+	jQuery("#mqv-widget-information table td, #mqv-widget-information table img, #mqv-widget-get").css("vertical-align","middle");	
+	jQuery("#mqv-widget-information img, #mqv-widget-get").css("cursor","pointer");
+	
 	jQuery("#mqv-widget-player-controller").css("direction","ltr");
 	
 	w_player.load(w_file.url);
