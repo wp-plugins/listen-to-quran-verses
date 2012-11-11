@@ -45,6 +45,13 @@ If you wish to add your languages just submit a request with the contact page an
 
 == Installation ==
 
+<h3>IMPORTANT NOTES:</h3>
+
+* This plugin will only work if your theme allows inserting code in the HEAD and FOOTER sections of your blog.
+* make sure you add `{QuranVerses}` in your new page or new post. so it start showing instantly.
+* The plugin needs to be connected to internet in order to load the media files (can't be done if you are working on a local machine without an active internet connection)
+
+
 <h3>Basic Steps</h3>
 
 1. Upload `plugin-name.php` to the `/wp-content/plugins/` directory
@@ -53,16 +60,9 @@ If you wish to add your languages just submit a request with the contact page an
 
 http://www.youtube.com/watch?v=bd-iGTudp4c
 
-<h3>IMPORTANT NOTES:</h3>
+<h3>How to use:</h3>
 
-* This plugin will only work if your theme allows inserting code in the HEAD and FOOTER sections of your blog.
-* make sure you add `{QuranVerses}` in your new page or new post. so it start showing instantly.
-* The plugin needs to be connected to internet in order to load the media files (can't be done if you are working on a local machine without an active internet connection)
-
-
-<h3>Useful links:</h3>
-1. <a href="http://www.youtube.com/watch?v=bd-iGTudp4c" title="Install and use wordpress plugin (Listen to Quran Verses)">Video tutorial on intalling the plugin</a>
-1. <a href="http://www.youtube.com/watch?v=6KdemRIoi84" title="How to Use Listen to Quran Plugin">Video tutorial on how to use the plugin</a>
+http://www.youtube.com/watch?v=6KdemRIoi84
 
 
 == Screenshots ==
