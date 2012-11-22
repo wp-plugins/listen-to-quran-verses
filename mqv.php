@@ -3,7 +3,7 @@
 Plugin Name: Listen to Quran Verses
 Plugin URI: http://listenquran.wadakkir.org/
 Description: This plugin let's you easily add Quran to your website with a flexible way to help people memorize its verses, and a very simple, easy to integrate within the current theme, and fully customizable interface supporting LTR as well as RTL design form. demo on http://www.wadakkir.org/
-Version: 1.3.3
+Version: 1.3.4
 Author: Larbi Abu Romaïssae
 Author URI: http://aburomaissae.wadakkir.org
 License: GPLv2 or later
@@ -59,27 +59,39 @@ function loadGeneralScripts() {
 		, array()
 		, true
 	);
-	if(get_locale() == "ar") {
-		wp_enqueue_script(
-			'mqvdictionaryarscript'
-			, plugins_url('/js/dictionary-ar.js', __FILE__)
-			, array()
-			, true
-		);
-		wp_enqueue_script(
-			'mqvtranslatescript'
-			, plugins_url('/js/translate.js', __FILE__)
-			, array("jquery","mqvjqnoconflict")
-			, true
-		);
+	$lang = get_locale();
+	wp_register_script(
+		'mqvtranslatescript'
+		, plugins_url('/js/translate.js', __FILE__)
+		, array("jquery","mqvjqnoconflict")
+		, true
+	);
+	switch ($lang) {
+		case "ar":
+			wp_enqueue_script(
+				'mqvdictionaryarscript'
+				, plugins_url('/js/dictionary-ar.js', __FILE__)
+				, array('mqvtranslatescript')
+				, true
+			);
+			break;
+		case "fr_FR":
+			wp_enqueue_script(
+				'mqvdictionaryarscript'
+				, plugins_url('/js/dictionary-fr.js', __FILE__)
+				, array('mqvtranslatescript')
+				, true
+			);
+			break;
+		default:
+			wp_enqueue_script(
+				'mqvdictionarylatinscript'
+				, plugins_url('/js/dictionary-latin.js', __FILE__)
+				, array()
+				, true
+			);
+			break;
 	}
-	else
-		wp_enqueue_script(
-			'mqvdictionarylatinscript'
-			, plugins_url('/js/dictionary-latin.js', __FILE__)
-			, array()
-			, true
-		);
 	wp_enqueue_style(
 		'mqvjqautocomplete'
 		, plugins_url('/css/ui-lightness/jquery-ui-1.9.0.custom.css', __FILE__)

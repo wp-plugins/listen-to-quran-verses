@@ -71,6 +71,10 @@ If you wish to add your languages just submit a request with the contact page an
 
 == Changelog ==
 
+= 1.3.4 =
+
+* Add french language support
+
 = 1.3.3 =
 
 - Add change recitation for widget
