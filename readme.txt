@@ -2,7 +2,7 @@
 Contributors: ibralnet
 Tags: quran, memorising, verses, list, play, player, random, widget
 Requires at least: 3.0.1
-Tested up to: 3.4.2
+Tested up to: 3.5
 Stable tag: 1.3.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -36,7 +36,7 @@ The plugin currently support:
 
 1. Aarbe
 1. English
-1. French (comming soon)
+1. French
 
 If you wish to add your languages just submit a request with the contact page and we will contact you with a form where you can put your language translations
 
@@ -71,16 +71,20 @@ If you wish to add your languages just submit a request with the contact page an
 
 == Changelog ==
 
+= 1.3.5 =
+
+* Hot fix repeat verses bug
+
 = 1.3.4 =
 
 * Add french language support
 
 = 1.3.3 =
 
-- Add change recitation for widget
-- Solve slow websites problem
-- Review script dependencies 
-- Add some missing translations
+* Add change recitation for widget
+* Solve slow websites problem
+* Review script dependencies 
+* Add some missing translations
 
 = 1.3.2 =
 
