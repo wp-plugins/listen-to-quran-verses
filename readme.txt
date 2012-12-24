@@ -71,6 +71,10 @@ If you wish to add your languages just submit a request with the contact page an
 
 == Changelog ==
 
+= 1.3.6 =
+
+* Fix URLs
+
 = 1.3.5 =
 
 * Hot fix repeat verses bug

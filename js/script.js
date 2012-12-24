@@ -520,7 +520,3 @@ host = "www.everyayah.com/";
 path = "data/warsh/";
 receiter = "warsh_ibrahim_aldosary_128kbps/";
 /** ****** **/
-protocole = "http://";
-host = "localhost/";
-path = "";
-receiter = "warsh_ibrahim_aldosary/";
