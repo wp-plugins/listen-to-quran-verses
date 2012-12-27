@@ -3,7 +3,7 @@
 Plugin Name: Listen to Quran Verses
 Plugin URI: http://listenquran.wadakkir.org/
 Description: This plugin let's you easily add Quran to your website with a flexible way to help people memorize its verses, and a very simple, easy to integrate within the current theme, and fully customizable interface supporting LTR as well as RTL design form. demo on http://www.wadakkir.org/
-Version: 2.0
+Version: 2.0.1
 Author: Larbi Abu Romaïssae
 Author URI: http://aburomaissae.wadakkir.org
 License: GPLv2 or later
@@ -60,7 +60,6 @@ function loadGeneralScripts() {
 		, true
 	);
 	$lang = get_locale();
-	$lang = "ar";
 	wp_register_script(
 		'mqvtranslatescript'
 		, plugins_url('/js/translate.js', __FILE__)
