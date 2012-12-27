@@ -66,14 +66,14 @@ input {
 	display: none;
 }
 
-#advanced-settings-note, #show-hide {
+#advanced-settings-note, #show-hide, #change-reciter-toggle {
     color: gray;
     font-size: small;
     padding: 5px;
     font-family: Jawbox;
 }
 
-#show-hide{
+#show-hide, #change-reciter-toggle{
 	text-decoration: underline;
 	color: darkgray;
 	font-style: italic;

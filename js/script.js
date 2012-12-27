@@ -20,6 +20,8 @@ totalAyah = 0;
 currentTrackDuration = 0; // in milliseconde
 repeatAyahDurationTimer = null;
 
+var $ = jQuery.noConflict();
+
 // global variable to defined wether we need to log debug messages or not
 debug = false;
 
@@ -55,6 +57,30 @@ jQuery(document).ready(function(){
 			$("#sourah").select();
 		}, 50);
 	}).blur(initElements);
+
+	
+	defReciter = getDefaultReciter();
+	defPath = getRecitationsSubfolder( defReciter );
+	if( defPath === false ){
+		localStorage.defaultReciter = null;
+		defReciter = getDefaultReciter();
+	}
+	
+	$("#reciter-name").text( defReciter );
+	$("#reciters").val( defReciter );
+	
+	$("#reciters").autocomplete({
+		source: prepareRecitersArray()
+		//, close: setReciter
+		, change: setReciter
+		, autoFocus: true
+	}).focus(function(){
+		setTimeout(function(){
+			$("#reciters").select();
+		}, 50);
+	});//.blur(setReciter);
+	
+	
 	// init the total ayah for the current sourah variable and set it as a defaul value for the "end" field
 	totalAyah = ayahPerSourah[ threeDigit( getSourahNumber( jQuery("#sourah").val() ) ) ];
 	$("#ayah-e").val( totalAyah );
@@ -74,6 +100,9 @@ jQuery(document).ready(function(){
 
 	// When the user start playing the select verses
 	jQuery("#start-reading").click(function(){
+		
+		$("#selet-reciter-container").slideUp();
+		
 		// validating the form values
 		if(!isValid())
 			return;
@@ -246,8 +275,79 @@ jQuery(document).ready(function(){
 			insertMsg($("#yes-repeat-after-reciter"), dicoVars['YES_REPEAT_AFTER_RECITER']);
 	});
 	
+	$("#btn-show-every-sourah").click(function(){
+		//alert("kilelr");
+		$('#sourah').trigger("focus");
+		$("#sourah").autocomplete("search", " ");
+	});
+	
+	$("#btn-show-every-reciter").click(function(){
+		$('#reciters').trigger("focus");
+		$("#reciters").autocomplete("search", " ");
+	});
+	
+	$("#change-reciter-toggle").click(function(){
+		$("#selet-reciter-container").slideToggle();
+	});
+	
 	
 	/* *******  FUNCTIONS ******** */
+	
+	function setDefaultReciter( dr ){
+		if(typeof(Storage)!=="undefined") {
+			localStorage.defaultReciter = dr;
+		}
+	}
+	
+	function getDefaultReciter(){
+		if(typeof(Storage)!=="undefined" && typeof localStorage.defaultReciter !== "undefined" && localStorage.defaultReciter != "null") {
+			return localStorage.defaultReciter;
+		} else {
+			return getReciterFromSubfolder( receiter );
+		}
+	}
+	
+	function setReciter(){
+		sr = $("#reciters").val();
+		receiter = getRecitationsSubfolder( sr );
+		if(receiter !== false){
+			setDefaultReciter( sr );
+			$("#reciter-name").text( sr );
+			return;
+		}
+		insertMsg($("#btn-show-every-reciter"), dicoVars['SELECT_VALID_RECITER'], true);
+		sr = $("#reciter-name").text();
+		receiter = getRecitationsSubfolder( sr );
+	}
+	
+	function getRecitationsSubfolder( sr ){
+		sr = sr.replace(/ \(.*\)/, "");
+		for(var idx in reciters){
+			r = reciters[idx].name;
+			if( r == sr ){
+				return recitations[idx].subfolder + "/";
+			}
+		}
+		return false;
+	}
+	
+	function getReciterFromSubfolder( sbf ){
+		for( var idx in recitations ){
+			if( sbf == (recitations[idx].subfolder + "/") )
+				return reciters[idx].name + " ( "+ recitations[idx].bitrate +" )";
+		}
+		return false;
+	}
+	
+	function prepareRecitersArray(){
+		tmp = [];
+		for(var idx in reciters){
+			r = reciters[idx].name + " ( "+ recitations[idx].bitrate + " )";
+			tmp.push( r );
+		}
+		return tmp;
+	}
+	
 	function showCountDown(){
 		// remove all previous and hidden elements
 		$("#mqv-countdown-notes").remove();
@@ -516,7 +616,7 @@ jQuery(document).ready(function(){
 */
 /** SERVER CONFIGURATION **/
 protocole = "http://";
-host = "www.everyayah.com/";
-path = "data/warsh/";
-receiter = "warsh_ibrahim_aldosary_128kbps/";
+host = "shalaby.everyayah.com/";
+path = "data/";
+receiter = "khalefa_al_tunaiji_64kbps/";
 /** ****** **/

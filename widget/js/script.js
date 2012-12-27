@@ -1,5 +1,6 @@
 var w_player = null;
 var w_loader = false;
+var $ = jQuery.noConflict();
 
 jQuery(document).ready(function(){
 	

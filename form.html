@@ -6,6 +6,18 @@ you can understand the form by urself, quite easy isn't it ;)
 
 <link rel="stylesheet" href="__PLUGINS_URL__/css/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
 
+
+<div class="mqv-container">
+	<span class="toTranslate" transindex="RECITER">Reciter: </span><span id="reciter-name">Current Reciter</span> <span id="change-reciter-toggle" class="toTranslate" transindex="CHANGE">change</span>
+	<p style="display:none" id="selet-reciter-container">
+		<label for="reciters" class="toTranslate" transindex="RECITERS">Reciters: </label>
+		<input type="text" name="reciters" id="reciters" />
+		<input id="btn-show-every-reciter" type="button" value="V" /><br>
+		<!-- 
+		<input type="checkbox" id="default-reciter-checkbox"> <label for="default-reciter-checkbox" class="toTranslate" transindex="MAKE-DEFAULT">make default</label>
+		 -->
+	</p>
+</div>
 <table class="mqv-container">
 	<tr>
 		<td>
@@ -13,6 +25,7 @@ you can understand the form by urself, quite easy isn't it ;)
 		</td>
 		<td>
 			<input type="text" name="sourah" id="sourah" />
+			<input id="btn-show-every-sourah" type="button" value="V" />
 		</td>
 	</tr>
 	<tr>
@@ -34,7 +47,7 @@ you can understand the form by urself, quite easy isn't it ;)
 	</tr>
 </table>
 <div class="mqv-container">
-	<h3><span class="toTranslate" transindex="ADVANCED">Advanced:</span> <span id="show-hide" class="toTranslate" transindex="SHOW-HIDE" >Show/Hide</span><span id="advanced-settings-note" class="toTranslate" transindex="ADVANCED-SETTING-NOTES">(Those settings could be changed while playing the selection)</span></h3>
+	<h3><span class="toTranslate" transindex="ADVANCED">Advanced:</span> <span id="show-hide" class="toTranslate" transindex="SHOW-HIDE">Show/Hide</span><span id="advanced-settings-note" class="toTranslate" transindex="ADVANCED-SETTING-NOTES">(Those settings could be changed while playing the selection)</span></h3>
 </div>
 <div id="mqv-advance-player-setting">
 	<table class="mqv-container">
