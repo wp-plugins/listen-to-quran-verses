@@ -16,13 +16,13 @@ Simple functionnality, but yet very usefull way to listen to Quran verse by vers
 The plugin switches automatically the languages and direction based on your wordpress installation
 
 * Supports Both RTL and LTR directions
+* You can choose a prefered reciter from the list provided
 * You can select an interval of verses to play
-* define the number of times each verse will be repeated
+* Define the number of times each verse will be repeated
 * You can also repeat the whole interval as many times as you want by setting this functionality to ON.  
 
 A nice paging and a progress bar is there to help you know the current and already played verses from the interval you selected
 
-The plugin is at the moment containing the recitation of a single reciter Ibrahim Aldosary (warsh), Soon further reciters will be included.
 
 * Activating the random recitation widget, will allow you to play a random recitation every time the page loaded
 * Users view the recitation download progress, pause, stop, and play the recitation at will
