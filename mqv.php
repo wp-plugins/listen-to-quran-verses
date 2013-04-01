@@ -83,6 +83,14 @@ function loadGeneralScripts() {
 				, true
 			);
 			break;
+		case "de_DE":
+			wp_enqueue_script(
+				'mqvdictionaryarscript'
+				, plugins_url('/js/dictionary-de.js', __FILE__)
+				, array('mqvtranslatescript')
+				, true
+			);
+			break;
 		default:
 			wp_enqueue_script(
 				'mqvdictionarylatinscript'
