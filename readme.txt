@@ -2,7 +2,7 @@
 Contributors: ibralnet
 Tags: quran, memorising, verses, list, play, player, random, widget
 Requires at least: 3.0.1
-Tested up to: 3.5
+Tested up to: 3.5.1
 Stable tag: 2.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -70,6 +70,10 @@ If you wish to add your languages just submit a request with the contact page an
 3. English version of the widget to play a random ayah every time the page loaded
 
 == Changelog ==
+
+= 2.0.2 = 
+
+* Add german Support provided by <a href="http://www.masjid-assalam.de/" >Masjid Assalam</a>
 
 = 2.0.1 = 
 
