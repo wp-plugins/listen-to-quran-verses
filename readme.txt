@@ -37,6 +37,7 @@ The plugin currently support:
 1. Aarbe
 1. English
 1. French
+1. Deutsch
 
 If you wish to add your languages just submit a request with the contact page and we will contact you with a form where you can put your language translations
 
