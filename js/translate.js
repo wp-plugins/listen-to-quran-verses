@@ -3,7 +3,10 @@
 // in this script we get the element which needs to be translated by the class '.toTranslate' and we change it text
 // and to conclude we force the form direction attribute to rtl (just to be sure it will look fine :) )
 
-$(document).ready(function (){
+
+jQuery(document).ready(function (){
+	var $ = jQuery.noConflict();
+	
 	$('.toTranslate').each(function(){
 		var index = $(this).attr('transindex');
 		if(index == null || typeof index == 'undefined' || index == "")

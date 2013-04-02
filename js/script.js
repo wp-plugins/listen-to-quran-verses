@@ -20,8 +20,6 @@ totalAyah = 0;
 currentTrackDuration = 0; // in milliseconde
 repeatAyahDurationTimer = null;
 
-var $ = jQuery.noConflict();
-
 // global variable to defined wether we need to log debug messages or not
 debug = false;
 
@@ -29,6 +27,9 @@ debug = false;
 
 // When the document is ready we set the init values
 jQuery(document).ready(function(){
+	
+	var $ = jQuery.noConflict();
+	
 	jwplayer('mqv-mediaspace').setup({
 	  'flashplayer': flashplayer,
 	  'file': file,

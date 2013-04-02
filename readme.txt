@@ -37,7 +37,7 @@ The plugin currently support:
 1. Aarbe
 1. English
 1. French
-1. Deutsch
+1. Deutsch (Provided by <a href="http://www.masjid-assalam.de/">Masjid Assalam</a>)
 
 If you wish to add your languages just submit a request with the contact page and we will contact you with a form where you can put your language translations
 
@@ -71,6 +71,10 @@ If you wish to add your languages just submit a request with the contact page an
 3. English version of the widget to play a random ayah every time the page loaded
 
 == Changelog ==
+
+= 2.1 =
+
+* fix jquery no conflict for some themes
 
 = 2.0.2 = 
 

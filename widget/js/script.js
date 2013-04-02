@@ -1,8 +1,9 @@
 var w_player = null;
 var w_loader = false;
-var $ = jQuery.noConflict();
 
 jQuery(document).ready(function(){
+	
+	var $ = jQuery.noConflict();
 	
 	jwplayer('mqv-widget-mediaspace').setup({
 	  'flashplayer': w_flashplayer,
