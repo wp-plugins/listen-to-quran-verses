@@ -5,7 +5,7 @@
 
 
 jQuery(document).ready(function (){
-	var $ = jQuery.noConflict();
+	$ = jQuery.noConflict();
 	
 	$('.toTranslate').each(function(){
 		var index = $(this).attr('transindex');

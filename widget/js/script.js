@@ -3,7 +3,7 @@ var w_loader = false;
 
 jQuery(document).ready(function(){
 	
-	var $ = jQuery.noConflict();
+	$ = jQuery.noConflict();
 	
 	jwplayer('mqv-widget-mediaspace').setup({
 	  'flashplayer': w_flashplayer,

@@ -28,7 +28,7 @@ debug = false;
 // When the document is ready we set the init values
 jQuery(document).ready(function(){
 	
-	var $ = jQuery.noConflict();
+	$ = jQuery.noConflict();
 	
 	jwplayer('mqv-mediaspace').setup({
 	  'flashplayer': flashplayer,
