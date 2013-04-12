@@ -83,7 +83,7 @@ function startEngine(w_file){
 	
 	jQuery("#mqv-widget-player-controller").css("direction","ltr");
 	
-	w_player.load(w_file.url);
+	w_player.load(w_file.url).pause();
 }
 
 jQuery("#mqv-widget-play").click(function(){

@@ -72,6 +72,10 @@ If you wish to add your languages just submit a request with the contact page an
 
 == Changelog ==
 
+= 2.1.2 =
+
+* Remove the autoplay from the random verses widget 
+
 = 2.1.1 =
 
 * bug fix for a random recitation issue
