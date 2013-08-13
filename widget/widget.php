@@ -1,19 +1,33 @@
 <?php
 
+require_once dirname(__FILE__)."/../helpers.php";
+
 class Random_Recitation_Widget extends WP_Widget
 {
   function Random_Recitation_Widget()
   {
+    mqvLoadDictionary();
     $widget_ops = array('classname' => 'Random_Recitation_Widget', 'description' => 'This widgets plays a random Recitation every time the page is loaded');
-    $this->WP_Widget('Random_Recitation_Widget', 'Random Recitation Widget', $widget_ops);
+    $this->WP_Widget('Random_Recitation_Widget', mqvTranslate('RANDOM_WIDGET_NAME'), $widget_ops);
+    // load translated text
   }
  
   function form($instance)
   {
-    $instance = wp_parse_args((array) $instance, array( 'title' => 'Random Recitation' ));
+    global $dictionary;
+    $instance = wp_parse_args((array) $instance, array( 'title' => mqvTranslate('RANDOM_WIDGET_DEFAULT_TITLE') ));
     $title = $instance['title'];
 ?>
-  <p><label for="<?php echo $this->get_field_id('title'); ?>">Title: <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></label></p>
+  <p>
+    <label for="<?php echo $this->get_field_id('title'); ?>">
+    <?php echo mqvTranslate("TITLE"); ?>
+    <input
+	      class="widefat"
+	      id="<?php echo $this->get_field_id('title'); ?>"
+	      name="<?php echo $this->get_field_name('title'); ?>"
+	      type="text" value="<?php echo esc_attr($title); ?>" />
+    </label>
+  </p>
 <?php
   }
  
@@ -36,8 +50,8 @@ class Random_Recitation_Widget extends WP_Widget
 
     // Do Your Widgety Stuff Here...
 ?>
-<div id="mqv-widget-waiting" style="height:20px;" class="toTranslate" transindex="PLEASE-WAIT">
-Loading, Please wait...
+<div id="mqv-widget-waiting" style="height:20px;">
+<?php echo mqvTranslate("PLEASE-WAIT"); ?>
 </div>
 <div id="mqv-widget-information" style="display:none;">
 	<table>
@@ -60,8 +74,8 @@ Loading, Please wait...
 			</td>
 		</tr>
 		<tr class="mqv-widget-center">
-			<td colspan="3" id="mqv-widget-get" class="toTranslate" transindex="GET_RECITATION">
-				Change Recitation
+			<td colspan="3" id="mqv-widget-get">
+				<?php echo mqvTranslate("GET_RECITATION"); ?>
 			</td>
 		</tr>
 	</table>

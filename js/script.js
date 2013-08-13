@@ -31,11 +31,15 @@ jQuery(document).ready(function(){
 	$ = jQuery.noConflict();
 	
 	jwplayer('mqv-mediaspace').setup({
-	  'flashplayer': flashplayer,
+	  //'flashplayer': flashplayer,
 	  'file': file,
 	  'controlbar': 'bottom',
 	  'width': '100%',
-	  'height': '24'
+	  'height': '24',
+	  'modes': [
+		{type: 'flash', src: flashplayer},
+		{type: 'html5'}
+	    ]
 	});
 	player = jwplayer('mqv-mediaspace');
 	

@@ -1,5 +1,6 @@
 var w_player = null;
 var w_loader = false;
+var autoStart = false;
 
 jQuery(document).ready(function(){
 	
@@ -43,6 +44,7 @@ jQuery(document).ready(function(){
 		w_player.stop();
 		$("#mqv-widget-information").slideUp('500').delay().after(function(){
 			$("#mqv-widget-waiting").slideDown().delay().after(function(){
+				autoStart = true;
 				getRecitation();
 			});
 		});
@@ -83,7 +85,9 @@ function startEngine(w_file){
 	
 	jQuery("#mqv-widget-player-controller").css("direction","ltr");
 	
-	w_player.load(w_file.url).pause();
+	w_player.load(w_file.url);
+	if (!autoStart)
+		w_player.pause();
 }
 
 jQuery("#mqv-widget-play").click(function(){
