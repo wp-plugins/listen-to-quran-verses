@@ -26,6 +26,9 @@ $dictionary = array(
     , 'GO' => 'Abspielen'
     , "TEXT-DIRECTION" => "ltr"
     , "TITLE" => "Titel: "
+    , "SETTING-PAGE-TITLE" => "Einstellungen"
+    , "RANDOM_WIDGET_NAME" => "Zufallsrezitation Widget"
+    , "RANDOM_WIDGET_DEFAULT_TITLE" => "Zufällige Rezitation"
 );
 
 ?>
