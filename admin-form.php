@@ -58,13 +58,16 @@ if( isset( $_POST['set-language'] ) ){
         email me.
     </a>
 </p>
+<br>
+<br>
+<br>
 
 <div style="color: rgb(99, 93, 93); font-family: fantasy;">
     <p>
         If you like the plugin, please give it a rating, by doing so, you encourage me to imporve it more and more, as I see it usefull to others
     </p>
     <p>
-        P.S: Please consider having a look on the android version: <a href="https://play.google.com/store/apps/details?id=org.wadakkir.listentoquranverses">https://play.google.com/store/apps/details?id=org.wadakkir.listentoquranverses</a>
+        P.S: Please consider having a look on the android version: <a target="_blank" href="https://play.google.com/store/apps/details?id=org.wadakkir.listentoquranverses">https://play.google.com/store/apps/details?id=org.wadakkir.listentoquranverses</a>
     </p>
 </div>
 <script type="text/javascript">
