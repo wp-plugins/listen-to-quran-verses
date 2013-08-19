@@ -32,13 +32,16 @@ function setLanguage( $new_lang = null ){
 function mqvLoadDictionary() {
 	global $language, $dictionary, $default_dictionary;
 	setLanguage();
-	
+
+	if( $language == "auto" ) 
+		$language = get_locale();
+
 	// load default texts (english)
 	$file 	= "languages/local-en.php";
 	require_once( $file );
 	// init default js dictionnary file 
 	$jsDico = '/js/dictionary-en.js';
-	
+
 	// check if the language dictionnary file is available, then load it if exist 
 	if( is_file( dirname( __FILE__ )."/languages/local-{$language}.php") ) {
 		require_once( "languages/local-{$language}.php" );

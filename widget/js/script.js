@@ -54,7 +54,7 @@ jQuery(document).ready(function(){
 
 function getRecitation(){
 //	w_file = $.get();
-	url = "http://dev.wadakkir.org/WP/listenquran/recitations/getRecitation.php";
+	url = "http://dev.madev.org/WP/listenquran/recitations/getRecitation.php";
 	url += (typeof(w_isArabLang) != "undefined" && w_isArabLang === true) ? "?lang=ar":"";
 
 	$.ajax({
@@ -82,6 +82,8 @@ function startEngine(w_file){
 	jQuery("#mqv-widget-information td, #mqv-widget-information img, #mqv-widget-get").css("padding","5px");
 	jQuery("#mqv-widget-information table td, #mqv-widget-information table img, #mqv-widget-get").css("vertical-align","middle");	
 	jQuery("#mqv-widget-information img, #mqv-widget-get").css("cursor","pointer");
+	
+	jQuery("#mqv-widget-reciter").css("text-align","inherit");
 	
 	jQuery("#mqv-widget-player-controller").css("direction","ltr");
 	

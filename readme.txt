@@ -41,8 +41,8 @@ The plugin currently support:
 
 If you wish to add your languages just submit a request with the contact page and we will contact you with a form where you can put your language translations
 
-1. <a href="http://listenquran.wadakkir.org/contact/">Developer contact page</a>
-1. <a href="http://listenquran.wadakkir.org">Online Demo</a>
+1. <a href="http://listenquran.madev.org/contact/">Developer contact page</a>
+1. <a href="http://listenquran.madev.org/demo/">Online Demo</a>
 
 == Installation ==
 

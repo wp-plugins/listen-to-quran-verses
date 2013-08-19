@@ -41,19 +41,22 @@ class Random_Recitation_Widget extends WP_Widget
   function widget($args, $instance)
   {
     extract($args, EXTR_SKIP);
- 
+    global $dictionary;
+
     echo $before_widget;
     $title = empty($instance['title']) ? '' : apply_filters('widget_title', $instance['title']);
  
+    $before_title = "<div style=\"direction: ". mqvTranslate('TEXT-DIRECTION') . "; \" >";
+    $after_title = "</div>";
     if (!empty($title))
-      echo $before_title . $title . $after_title;;
+      echo $before_title . $title . $after_title;
 
     // Do Your Widgety Stuff Here...
 ?>
-<div id="mqv-widget-waiting" style="height:20px;">
+<div id="mqv-widget-waiting" style="height:20px; direction: <?php echo mqvTranslate('TEXT-DIRECTION'); ?> ;">
 <?php echo mqvTranslate("PLEASE-WAIT"); ?>
 </div>
-<div id="mqv-widget-information" style="display:none;">
+<div id="mqv-widget-information" style="display:none; direction: <?php echo mqvTranslate('TEXT-DIRECTION'); ?> ;">
 	<table>
 		<tr>
 			<td id="mqv-widget-reciter" colspan="3"></td>
@@ -89,9 +92,9 @@ class Random_Recitation_Widget extends WP_Widget
 
 <?php
 	// include widget scripts
-
    loadGeneralScripts();
-   if( get_locale() == "ar"){
+   global $language;
+   if( $language == "ar"){
    	?>
 <script type='text/javascript'>
 	// define the arabic language
