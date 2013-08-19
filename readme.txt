@@ -68,7 +68,8 @@ If you wish to add your languages just submit a request with the contact page an
 
 1. Enlgish interface showing the new interface
 2. Enlgish interface showing the new autocomplete function & repeat the whole interface hint
-3. English version of the widget to play a random ayah every time the page loaded
+3. German version of the widget to play a random ayah every time the page loaded
+4. English version of the administration interface to change the plugin language
 
 == Changelog ==
 
