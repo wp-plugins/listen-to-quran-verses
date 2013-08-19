@@ -72,6 +72,12 @@ If you wish to add your languages just submit a request with the contact page an
 
 == Changelog ==
 
+= 2.2 =
+
+* changed the translation mechanism
+* added an administration menu that enable the administrator select the language he wants to show.
+* some minor changes and bug fixes
+
 = 2.1.2 =
 
 * Remove the autoplay from the random verses widget 

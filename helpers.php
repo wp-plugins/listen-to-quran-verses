@@ -12,7 +12,7 @@ function mqvTranslate( $text ){
 		return $dictionary[ $text ];
 	}
 	// if not, we log it and return the default, english, text
-	file_put_contents( dirname( __FILE__ ) . "/missing-text.txt", "$text\t\t:\t\tlocal-$language", FILE_APPEND );
+	file_put_contents( dirname( __FILE__ ) . "/missing-text.txt", "$text\t\t:\t\tlocal-$language\n", FILE_APPEND );
 	return $default_dictionary[ $text ];
 }
 
