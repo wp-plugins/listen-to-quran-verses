@@ -1,0 +1,81 @@
+table.mqv-container tr td:nth-child(1){
+	width: 40%;
+}
+table.mqv-container tr td:nth-child(2){
+	width: 60%;
+}
+
+table#playlist-items {
+    margin: 0;
+    text-align: center;
+    width: 100%;
+}
+td.playlist-item, td.playlist-item-played, td.playlist-item-dottes {
+	text-align: center;
+	cursor: pointer;
+	border: thin dotted;
+	padding: 0px;
+}
+td.playlist-item-played {
+	color: blue;
+	background: #eee;
+}
+
+td.playlist-item-dottes {
+	cursor: default;
+}
+
+input[type=number] {
+	direction: rtl;
+	width: 40px;
+}
+input {
+	vertical-align: middle;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 5px;
+}
+.mqv-note-field {
+    background-color: white;
+    border: medium solid;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0 0 15px 1px #000000;
+    display: none;
+    margin: 10px;
+    padding: 5px;
+    position: absolute;
+}
+.mqv-warning-field {
+	border-color: orange;
+}
+.mqv-error-field {
+	border-color: red;
+}
+
+.mqv-attention-style{
+	color: red;
+	font-weight: bold;
+}
+.mqv-important-field {
+	font-weight: bold;
+}
+.mqv-hint-field {
+	font-size: 75%;
+}
+#repeat-all-control {
+	display: none;
+}
+
+#advanced-settings-note, #show-hide, #change-reciter-toggle {
+    color: gray;
+    font-size: small;
+    padding: 5px;
+    font-family: Jawbox;
+}
+
+#show-hide, #change-reciter-toggle{
+	text-decoration: underline;
+	color: darkgray;
+	font-style: italic;
+	cursor: pointer;
+}

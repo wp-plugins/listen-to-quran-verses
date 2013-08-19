@@ -1,0 +1,22 @@
+<!-- 
+Two thing that you need to know about this file:
+- Contain the paging placeholder
+- contain the player playceholder
+- define the global values for the necessary urls that the player needs to be set with
+-->
+
+<table id="playlist-items">
+	<tr id="playlist-items-indexes">
+		<!-- td class="playlist-item">1</td -->
+	</tr>
+</table>
+<div id="mqv-mediaspace"></div>
+<script type='text/javascript'>
+// the main PHP script will take care and replace the placeholders (__PLUGINS_URL__)
+
+// the flash player location
+var flashplayer = '__PLUGINS_URL__/mediaplayer/player.swf';
+
+// the first file to load URL
+var file = '__PLUGINS_URL__/sample/basmala.mp3';
+</script>

@@ -1,0 +1,87 @@
+<!-- 
+hum... actually I got already tired of typing all of those comment, sorry for my laziness :(
+
+you can understand the form by urself, quite easy isn't it ;) 
+-->
+
+<link rel="stylesheet" href="__PLUGINS_URL__/css/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
+
+
+<div class="mqv-container" style="direction: _!_TEXT-DIRECTION_!_">
+	<span>_!_RECITER_!_</span><span id="reciter-name"></span> <span id="change-reciter-toggle">_!_CHANGE_!_</span>
+	<p style="display:none" id="selet-reciter-container">
+		<label for="reciters">_!_RECITERS_!_</label>
+		<input type="text" name="reciters" id="reciters" />
+		<input id="btn-show-every-reciter" type="button" value="&#x25BC;" /><br>
+	</p>
+</div>
+<table class="mqv-container" style="direction: _!_TEXT-DIRECTION_!_">
+	<tr>
+		<td>
+			<label for="sourah">_!_SOURAH_!_</label>
+		</td>
+		<td>
+			<input type="text" name="sourah" id="sourah" />
+			<input id="btn-show-every-sourah" type="button" value="&#x25BC;" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<label for="ayah-b">_!_INTERVAL_!_</label>
+		</td>
+		<td>
+			<label for="ayah-b">_!_FROM_!_</label>
+			<input type="number" name="ayah-b" id="ayah-b" value="1" />
+			<label for="ayah-e">_!_TO_!_</label>
+			<input type="number" name="ayah-e" id="ayah-e" value="1" />
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td>
+			<input type="button" id="start-reading" value="_!_GO_!_">
+		</td>
+	</tr>
+</table>
+<div class="mqv-container" style="direction: _!_TEXT-DIRECTION_!_">
+	<h3><span>_!_ADVANCED_!_</span><span id="show-hide">_!_SHOW-HIDE_!_</span><span id="advanced-settings-note">(_!_ADVANCED-SETTING-NOTES_!_)</span></h3>
+</div>
+<div id="mqv-advance-player-setting">
+	<table class="mqv-container" style="direction: _!_TEXT-DIRECTION_!_">
+		<tr>
+			<td>
+				<label for="ayah-repeat-verse">_!_REPEAT_!_</label>
+			</td>
+			<td>
+				<input type="number" name="ayah-repeat-verse" id="ayah-repeat-verse" value="1" /> 
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="ayah-repeat-all">_!_REPEAT-ALL_!_</label>
+			</td>
+			<td>
+				<input type="checkbox" name="ayah-repeat-all" id="ayah-repeat-all" />
+				<p id="repeat-all-control">
+					<input type="number" name="ayah-repeat-all-nbr" id="ayah-repeat-all-nbr" value="0" title="You can change this even while playing" disabled />
+					<span>_!_TIMES_!_</span><span class="mqv-attention-style"">*</span><br/>
+					(<span class="mqv-attention-style"">*</span>): <span class="mqv-hint-field">_!_1_AND_2_HINT_!_</span> <span class="mqv-important-field">_!_0_HINT_!_</span>
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label>_!_REPEAT-AFTER-RECITER_!_</label>
+			</td>
+			<td>
+				<input type="radio" name="repeat-after-reciter" value="yes" id="yes-repeat-after-reciter"> <label for="yes-repeat-after-reciter">_!_YES_!_</label>
+				<input type="radio" name="repeat-after-reciter" value="no" id="no-repeat-after-reciter" checked> <label for="no-repeat-after-reciter">_!_NO_!_</label>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="text-align: right; direction: ltr;">
+				Powered by: <a href="http://madev.org/" target="_blank"><img src="http://dev.madev.org/logo.png" width="55" height="55" alt="Logo" style="vertical-align: middle;"></a>
+			</td>
+		</tr>
+	</table>
+</div>
