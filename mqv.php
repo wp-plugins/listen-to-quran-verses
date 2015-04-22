@@ -3,7 +3,7 @@
 Plugin Name: Listen to Quran Verses
 Plugin URI: http://listenquran.madev.org/
 Description: This plugin let's you easily add Quran to your website with a flexible way to help people memorize its verses, and a very simple, easy to integrate within the current theme, and fully customizable interface supporting LTR as well as RTL design form. demo on http://listenquran.madev.org/
-Version: 2.2.1
+Version: 2.2.2
 Author: Larbi Abu Romaïssae
 Author URI: http://www.madev.org
 License: GPLv2 or later
