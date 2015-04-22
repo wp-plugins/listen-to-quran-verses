@@ -73,7 +73,7 @@ If you wish to add your languages just submit a request with the contact page an
 
 == Changelog ==
 
-= 2.2.1 =
+= 2.2.2 =
 
 * Fix audio files location
 
