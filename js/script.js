@@ -621,7 +621,7 @@ jQuery(document).ready(function(){
 */
 /** SERVER CONFIGURATION **/
 protocole = "http://";
-host = "shalaby.everyayah.com/";
+host = "www.everyayah.com/";
 path = "data/";
 receiter = "khalefa_al_tunaiji_64kbps/";
 /** ****** **/
